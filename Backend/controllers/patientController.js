@@ -3,7 +3,7 @@ var router = express.Router();
 const mongoose = require('mongoose');
 const Patient = mongoose.model('Patient');
 
-router.get('/', (req, res) => {
+router.get('/addPatient', (req, res) => {
     addPatient(req, res);
 });
 
