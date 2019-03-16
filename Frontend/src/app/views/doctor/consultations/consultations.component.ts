@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 declare var custom_gallery: any;
 declare var custom_flex: any;
 declare var custom_navigation: any;
@@ -12,7 +13,7 @@ declare var custom_date_picker: any;
 })
 export class ConsultationsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     custom_navigation();
