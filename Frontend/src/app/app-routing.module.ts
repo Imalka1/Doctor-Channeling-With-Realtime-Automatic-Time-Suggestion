@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {MainScreenComponent} from "./views/common/main-screen/main-screen.component";
+import { ConsultationsComponent } from './views/doctor/consultations/consultations.component';
 
 const routes: Routes = [
   {
     path: '',
     component: MainScreenComponent
   },
-  // {
-  //   path: '#c/register',
-  //   component: CompanyRegisterComponent
-  // },
+  {
+    path: 'consultations',
+    component: ConsultationsComponent
+  },
   // {
   //   path: '#t/register',
   //   component: TouristRegisterComponent
