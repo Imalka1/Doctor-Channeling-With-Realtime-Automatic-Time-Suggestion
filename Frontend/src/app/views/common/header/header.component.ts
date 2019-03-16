@@ -12,7 +12,7 @@ declare var custom_date_picker: any;
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -21,10 +21,13 @@ export class HeaderComponent implements OnInit {
     custom_flex();
     custom_date_picker();
     custom_gallery();
-    console.log(this.router.url) 
   }
 
-  isHomeUrl() {
-   
+  headerColor() {
+    if (this.router.url == '/') {
+      return "";
+    } else {
+      return "header-color";
+    }
   }
 }

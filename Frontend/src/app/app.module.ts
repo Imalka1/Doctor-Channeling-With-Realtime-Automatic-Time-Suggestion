@@ -7,6 +7,7 @@ import { HospitalScreenComponent } from './views/hospital/hospital-screen/hospit
 import { MainScreenComponent } from './views/common/main-screen/main-screen.component';
 import { ConsultationsComponent } from './views/doctor/consultations/consultations.component';
 import { HeaderComponent } from './views/common/header/header.component';
+import { FooterComponent } from './views/common/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HeaderComponent } from './views/common/header/header.component';
     HospitalScreenComponent,
     MainScreenComponent,
     ConsultationsComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
