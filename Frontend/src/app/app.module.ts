@@ -8,6 +8,7 @@ import { MainScreenComponent } from './views/common/main-screen/main-screen.comp
 import { ConsultationsComponent } from './views/doctor/consultations/consultations.component';
 import { HeaderComponent } from './views/common/header/header.component';
 import { FooterComponent } from './views/common/footer/footer.component';
+import { ChannelingsComponent } from './views/patient/channelings/channelings.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FooterComponent } from './views/common/footer/footer.component';
     MainScreenComponent,
     ConsultationsComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ChannelingsComponent
   ],
   imports: [
     BrowserModule,

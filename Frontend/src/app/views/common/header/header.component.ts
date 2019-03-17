@@ -23,11 +23,19 @@ export class HeaderComponent implements OnInit {
     custom_gallery();
   }
 
-  headerColor() {
+  headerColor(){
     if (this.router.url == '/') {
       return "";
     } else {
-      return "header-color";
+      return "header-bottoms";
+    }
+  }
+
+  isHome() {
+    if (this.router.url == '/') {
+      return true;
+    } else {
+      return false;
     }
   }
 }
