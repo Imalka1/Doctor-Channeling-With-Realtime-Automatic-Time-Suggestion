@@ -1,32 +1,24 @@
 <app-header></app-header>
 
 <section id="about">
-  <div class="container" style="font-size: 18px">
+  <div class="container" style="font-size: 16px">
     <div class="row" style="font-weight: bold;border-bottom: 1px black solid">
       <div class="col-sm-4">Date</div>
       <div class="col-sm-4">Time</div>
       <div class="col-sm-3">Patients count</div>
       <div class="col-sm-1"></div>
     </div>
-    <div class="row" style="margin-top: 10px;padding-bottom: 10px;border-bottom: 1px black solid">
-      <div class="col-sm-4" style="height: 100%">2019-02-02</div>
-      <div class="col-sm-4">02:02:PM</div>
-      <div class="col-sm-3">25</div>
-      <div class="col-sm-1" style="height: 100%"><i class="fa fa-pencil fa-1x"></i></div>
-    </div>
-    <div class="row" style="margin-top: 10px">
-      <div class="col-sm-4"><input type="datetime-local" class="form-control"></div>
-      <div class="col-sm-4"><input type="time" class="form-control"></div>
-      <div class="col-sm-3"><input type="number" class="form-control"></div>
-      <div class="col-sm-1" style="height: 100%"><i style="color: green;margin-right: 10px" class="fa fa-check fa-1x"></i><i style="color: red" class="fa fa-times fa-1x"></i></div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12" style="margin-top: 50px">
-        <button class="btn btn-warning"
-          style="position: absolute;left: 50%;transform: translateX(-50%)">qwertyui</button>
-      </div>
+    <div *ngFor="let consultationDto of consultationsDtos">
+        <app-fixed-consultation  [fixed_consultationDto]="consultationDto" *ngIf="!consultationDto.edit"></app-fixed-consultation>
+        <app-edit-consultation [edit_consultationDto]="consultationDto" *ngIf="consultationDto.edit"></app-edit-consultation>
     </div>
   </div><!-- end columns -->
+  <div class="row">
+      <div class="col-sm-12" style="margin-top: 50px">
+        <button class="btn btn-warning"
+          style="position: absolute;left: 50%;transform: translateX(-50%)" (click)="addField()">add consultation</button>
+      </div>
+    </div>
 </section><!-- end about -->
 
 <app-footer></app-footer>

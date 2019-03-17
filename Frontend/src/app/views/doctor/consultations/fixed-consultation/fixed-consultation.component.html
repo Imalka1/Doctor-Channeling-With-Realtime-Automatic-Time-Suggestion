@@ -1,0 +1,9 @@
+<div class="row" style="margin-top: 10px;padding-bottom: 10px;border-bottom: 1px black solid">
+  <div class="col-sm-4" style="height: 100%">{{fixed_consultationDto.consultation.date}}</div>
+  <div class="col-sm-4">{{fixed_consultationDto.consultation.time}}</div>
+  <div class="col-sm-3">{{fixed_consultationDto.consultation.patientsCount}}</div>
+  <div class="col-sm-1" style="height: 100%">
+    <i class="fa fa-pencil fa-1x" style="cursor: pointer;margin-right: 20px" (click)="changeData()"></i>
+    <i class="fa fa-times fa-1x" style="color: red" (click)="deleteData()" ></i>
+  </div>
+</div>

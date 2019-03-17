@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HospitalScreenComponent } from './views/hospital/hospital-screen/hospital-screen.component';
@@ -9,6 +9,8 @@ import { ConsultationsComponent } from './views/doctor/consultations/consultatio
 import { HeaderComponent } from './views/common/header/header.component';
 import { FooterComponent } from './views/common/footer/footer.component';
 import { ChannelingsComponent } from './views/patient/channelings/channelings.component';
+import { EditConsultationComponent } from './views/doctor/consultations/edit-consultation/edit-consultation.component';
+import { FixedConsultationComponent } from './views/doctor/consultations/fixed-consultation/fixed-consultation.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,14 @@ import { ChannelingsComponent } from './views/patient/channelings/channelings.co
     ConsultationsComponent,
     HeaderComponent,
     FooterComponent,
-    ChannelingsComponent
+    ChannelingsComponent,
+    EditConsultationComponent,
+    FixedConsultationComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
