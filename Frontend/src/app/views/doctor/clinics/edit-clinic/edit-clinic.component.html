@@ -1,0 +1,10 @@
+<div class="row" style="margin-top: 10px">
+    <div class="col-sm-4"><input type="date" class="form-control" [(ngModel)]="edit_clinicDto.clinic.date"></div>
+    <div class="col-sm-2"><input type="time" class="form-control" [(ngModel)]="edit_clinicDto.clinic.time"></div>
+    <div class="col-sm-2"><input type="number" class="form-control" [(ngModel)]="edit_clinicDto.clinic.patientsCount" name="patientsCount"></div>
+    <div class="col-sm-3">Pending</div>
+    <div class="col-sm-1" style="margin-top: 5px">
+      <i class="fa fa-check fa-1x" style="color: green;margin-right: 20px" (click)="acceptData()"></i>
+      <i class="fa fa-times fa-1x" style="color: red" (click)="deleteData()" ></i>
+      </div>
+  </div>

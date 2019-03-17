@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainScreenComponent } from "./views/common/main-screen/main-screen.component";
-import { ConsultationsComponent } from './views/doctor/consultations/consultations.component';
-import { FixedConsultationComponent } from './views/doctor/consultations/fixed-consultation/fixed-consultation.component';
-import { EditConsultationComponent } from './views/doctor/consultations/edit-consultation/edit-consultation.component';
+import { ClinicsComponent } from './views/doctor/clinics/clinics.component';
 
 const routes: Routes = [
   {
@@ -11,17 +9,17 @@ const routes: Routes = [
     component: MainScreenComponent
   },
   {
-    path: 'consultations',
-    component: ConsultationsComponent,
-    children: [
-      {
-        path: 'fixed-consultation',
-        component: FixedConsultationComponent
-      },
-      {
-        path: 'edit-consultation',
-        component: EditConsultationComponent
-      }]
+    path: 'clinics',
+    component: ClinicsComponent,
+    // children: [
+    //   {
+    //     path: 'fixed-consultation',
+    //     component: FixedConsultationComponent
+    //   },
+    //   {
+    //     path: 'edit-consultation',
+    //     component: EditConsultationComponent
+    //   }]
   },
 ];
 
