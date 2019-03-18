@@ -11,16 +11,16 @@
       <div class="col-sm-1" style="text-align: center">Remove</div>
     </div>
     <div *ngFor="let clinicDto of clinicDtos">
-        <app-fixed-clinic  [fixed_clinicDto]="clinicDto" *ngIf="!clinicDto.edit"></app-fixed-clinic>
-        <app-edit-clinic [edit_clinicDto]="clinicDto" *ngIf="clinicDto.edit"></app-edit-clinic>
+      <app-fixed-clinic [fixed_clinicDto]="clinicDto" *ngIf="!clinicDto.edit"></app-fixed-clinic>
+      <app-edit-clinic [edit_clinicDto]="clinicDto" *ngIf="clinicDto.edit"></app-edit-clinic>
     </div>
   </div><!-- end columns -->
   <div class="row">
-      <div class="col-sm-12" style="margin-top: 50px">
-        <button class="btn btn-warning"
-          style="position: absolute;left: 50%;transform: translateX(-50%)" (click)="addField()">add clinic</button>
-      </div>
+    <div class="col-sm-12" style="margin-top: 50px">
+      <button class="btn btn-warning" style="position: absolute;left: 50%;transform: translateX(-50%)"
+        (click)="addField()">add clinic</button>
     </div>
+  </div>
 </section><!-- end about -->
 
 <app-footer></app-footer>
