@@ -1,10 +1,13 @@
 const express = require('express');
 var router = express.Router();
-const mongoose = require('mongoose');
-const Patient = mongoose.model('Patient');
+var { Patient } = require('../models/patient')
 
 router.get('/addPatient', (req, res) => {
     addPatient(req, res);
+});
+
+router.get('/', (req, res) => {
+    res.json('asdf')
 });
 
 function addPatient(req, res) {
