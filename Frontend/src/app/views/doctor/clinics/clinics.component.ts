@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ClinicDTO } from 'src/app/dtos/ClinicDTO';
 import { Clinic } from 'src/app/dtos/Clinic';
+import { ClinicsService } from 'src/app/services/clinics.service';
 declare var custom_gallery: any;
 declare var custom_flex: any;
 declare var custom_navigation: any;
@@ -15,9 +16,11 @@ declare var custom_date_picker: any;
 })
 export class ClinicsComponent implements OnInit {
 
-  clinicDtos: Array<ClinicDTO> = []
+  clinicDtos: Array<ClinicDTO> = new Array();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private clinicsService: ClinicsService) {
+
+  }
 
   ngOnInit() {
     custom_navigation();
@@ -26,23 +29,7 @@ export class ClinicsComponent implements OnInit {
     custom_date_picker();
     custom_gallery();
 
-    let con1 = new Clinic();
-    let conDto1 = new ClinicDTO();
-    con1.date = "2018-02-03";
-    con1.patientsCount = 25;
-    con1.time = "02:03";
-    conDto1.clinic = con1;
-    conDto1.clinicDtos = this.clinicDtos;
-    this.clinicDtos.push(conDto1);
-
-    let con2 = new Clinic();
-    let conDto2 = new ClinicDTO();
-    con2.date = "2018-08-03";
-    con2.patientsCount = 26;
-    con2.time = "05:03";
-    conDto2.clinic = con2;
-    conDto2.clinicDtos = this.clinicDtos;
-    this.clinicDtos.push(conDto2);
+    this.loadAllClinics();
   }
 
   addField() {
@@ -52,6 +39,21 @@ export class ClinicsComponent implements OnInit {
     conDto.clinic = con;
     conDto.clinicDtos = this.clinicDtos;
     this.clinicDtos.push(conDto);
+  }
+
+  loadAllClinics() {
+    this.clinicsService.getAllClinics().subscribe(
+      (result) => {
+        for (let i = 0; i < result.length; i++) {
+          let clinic: Clinic = result[i];
+          let conDto: ClinicDTO = new ClinicDTO();
+          conDto.edit = false;
+          conDto.clinic = clinic;
+          conDto.clinicDtos = this.clinicDtos;
+          this.clinicDtos.push(conDto)
+        }
+      }
+    )
   }
 
   changeData(consultation_row: HTMLElement) {

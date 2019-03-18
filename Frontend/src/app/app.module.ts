@@ -11,6 +11,8 @@ import { ChannelingsComponent } from './views/patient/channelings/channelings.co
 import { ClinicsComponent } from './views/doctor/clinics/clinics.component';
 import { EditClinicComponent } from './views/doctor/clinics/edit-clinic/edit-clinic.component';
 import { FixedClinicComponent } from './views/doctor/clinics/fixed-clinic/fixed-clinic.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ClinicsService } from './services/clinics.service';
 
 @NgModule({
   declarations: [
@@ -27,9 +29,12 @@ import { FixedClinicComponent } from './views/doctor/clinics/fixed-clinic/fixed-
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ClinicsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
