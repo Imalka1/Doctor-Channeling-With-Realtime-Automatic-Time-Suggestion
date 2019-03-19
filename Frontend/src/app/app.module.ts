@@ -13,6 +13,7 @@ import { EditClinicComponent } from './views/doctor/clinics/edit-clinic/edit-cli
 import { FixedClinicComponent } from './views/doctor/clinics/fixed-clinic/fixed-clinic.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ClinicsService } from './services/clinics.service';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ClinicsService } from './services/clinics.service';
     HttpClientModule
   ],
   providers: [
+    DatePipe,
     ClinicsService
   ],
   bootstrap: [AppComponent]

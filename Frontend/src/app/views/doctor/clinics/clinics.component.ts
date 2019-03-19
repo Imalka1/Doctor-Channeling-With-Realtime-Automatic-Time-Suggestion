@@ -33,12 +33,21 @@ export class ClinicsComponent implements OnInit {
   }
 
   addField() {
-    let con = new Clinic();
-    let conDto = new ClinicDTO();
-    conDto.edit = true;
-    conDto.clinic = con;
-    conDto.clinicDtos = this.clinicDtos;
-    this.clinicDtos.push(conDto);
+    let canAdd: boolean = true;
+    for (let i = 0; i < this.clinicDtos.length; i++) {
+      if (this.clinicDtos[i].edit == true) {
+        canAdd = false;
+      }
+    }
+    if (canAdd) {
+      let con = new Clinic();
+      let conDto = new ClinicDTO();
+      conDto.edit = true;
+      conDto.clinic = con;
+      conDto.clinic.status = "Pending";
+      conDto.clinicDtos = this.clinicDtos;
+      this.clinicDtos.push(conDto);
+    }
   }
 
   loadAllClinics() {
