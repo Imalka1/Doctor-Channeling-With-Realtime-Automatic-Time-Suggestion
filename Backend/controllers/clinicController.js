@@ -10,11 +10,34 @@ router.post('/addClinic', (req, res) => {
     clinic.status = req.body.status;
     clinic.save((err, doc) => {
         if (!err) {
-            res.json(true)
+            res.json(clinic)
         } else {
-            res.json(false)
+            res.json(undefined)
         }
     });
+});
+
+router.post('/updateClinic', (req, res) => {
+    Clinic.findOneAndUpdate({ _id: req.body._id }, req.body, { useFindAndModify: false }, (err, doc) => {
+        if (!err) {
+            res.json(true)
+        } else {
+            console.log(err)
+            res.json(false)
+        }
+    })
+});
+
+router.post('/removeClinic', (req, res) => {
+    console.log(req.body._id)
+    Clinic.findByIdAndDelete({ _id: req.body._id }, (err, doc) => {
+        if (!err) {
+            res.json(true)
+        } else {
+            console.log(err)
+            res.json(false)
+        }
+    })
 });
 
 router.get('/getAllClinics', (req, res) => {

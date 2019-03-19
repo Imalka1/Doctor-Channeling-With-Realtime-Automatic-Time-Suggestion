@@ -55,6 +55,7 @@ export class ClinicsComponent implements OnInit {
       (result) => {
         for (let i = 0; i < result.length; i++) {
           let clinic: Clinic = result[i];
+          // console.log(clinic._id)
           let conDto: ClinicDTO = new ClinicDTO();
           conDto.edit = false;
           conDto.clinic = clinic;

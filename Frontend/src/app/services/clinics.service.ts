@@ -13,8 +13,16 @@ export class ClinicsService {
 
   constructor(private http: HttpClient) { }
 
-  saveClinic(clinic: Clinic): Observable<boolean> {
-    return this.http.post<boolean>(environment.backend_url + URL + "/addClinic", clinic);
+  saveClinic(clinic: Clinic): Observable<Clinic> {
+    return this.http.post<Clinic>(environment.backend_url + URL + "/addClinic", clinic);
+  }
+
+  updateClinic(clinic: Clinic): Observable<boolean> {
+    return this.http.post<boolean>(environment.backend_url + URL + "/updateClinic", clinic);
+  }
+
+  removeClinic(clinic: Clinic): Observable<boolean> {
+    return this.http.post<boolean>(environment.backend_url + URL + "/removeClinic", clinic);
   }
 
   getAllClinics(): Observable<Array<Clinic>> {

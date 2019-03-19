@@ -19,18 +19,33 @@ export class EditClinicComponent implements OnInit {
 
   }
 
-  deleteData() {
-    this.edit_clinicDto.clinicDtos.splice(this.edit_clinicDto.clinicDtos.indexOf(this.edit_clinicDto), 1)
+  deleteClinic() {
+    if (this.edit_clinicDto.update) {
+      this.clinicsService.removeClinic(this.edit_clinicDto.clinic).subscribe(
+        (result) => {
+          if (result) {
+            this.edit_clinicDto.clinicDtos.splice(this.edit_clinicDto.clinicDtos.indexOf(this.edit_clinicDto), 1)
+          }
+        })
+    } else {
+      this.edit_clinicDto.clinicDtos.splice(this.edit_clinicDto.clinicDtos.indexOf(this.edit_clinicDto), 1)
+    }
   }
 
-  saveData() {
+  saveClinic() {
     if (this.edit_clinicDto.clinic.date != undefined && this.edit_clinicDto.clinic.status != undefined && this.edit_clinicDto.clinic.time != undefined && this.edit_clinicDto.clinic.patientsCount != undefined) {
       if (this.edit_clinicDto.update) {
-        this.edit_clinicDto.edit = false;
+        this.clinicsService.updateClinic(this.edit_clinicDto.clinic).subscribe(
+          (result) => {
+            if (result) {
+              this.edit_clinicDto.edit = false;
+            }
+          })
       } else {
         this.clinicsService.saveClinic(this.edit_clinicDto.clinic).subscribe(
           (result) => {
-            if (result) {
+            if (result != undefined) {
+              this.edit_clinicDto.clinic._id = result._id;
               this.edit_clinicDto.edit = false;
             }
           })
