@@ -18,5 +18,5 @@ app.use('/patients', patientController);
 app.use('/clinics', clinicController.router);
 
 schedule.scheduleJob('59 59 23 * * *', function () {
-    clinicController.flushOldClinics();
+    clinicController.updateClinics();
 });

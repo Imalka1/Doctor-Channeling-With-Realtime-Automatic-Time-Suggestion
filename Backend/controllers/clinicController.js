@@ -48,7 +48,7 @@ router.get('/getAllClinics', (req, res) => {
     })
 });
 
-function flushOldClinics() {
+function updateClinics() {
     console.log('The world is going to end today.');
 };
 
