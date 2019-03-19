@@ -1,6 +1,6 @@
 const express = require('express');
 var router = express.Router();
-var { Clinic } = require('../models/clinic')
+var { Clinic } = require('../models/clinic');
 
 router.post('/addClinic', (req, res) => {
     var clinic = new Clinic();
@@ -48,4 +48,11 @@ router.get('/getAllClinics', (req, res) => {
     })
 });
 
-module.exports = router;
+function flushOldClinics() {
+    console.log('The world is going to end today.');
+};
+
+module.exports = {
+    router: router,
+    flushOldClinics: flushOldClinics
+}

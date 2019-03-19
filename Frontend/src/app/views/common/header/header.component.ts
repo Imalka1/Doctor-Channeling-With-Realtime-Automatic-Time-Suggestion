@@ -26,13 +26,13 @@ export class HeaderComponent implements OnInit {
 
   
 
-  headerColor(){
-    if (this.router.url == '/head/main') {
-      return "";
-    } else {
-      return "header-bottoms";
-    }
-  }
+  // headerColor(){
+  //   if (this.router.url == '/head/main') {
+  //     return "";
+  //   } else {
+  //     return "header-bottoms";
+  //   }
+  // }
 
   isHome() {
     if (this.router.url == '/head/main') {
