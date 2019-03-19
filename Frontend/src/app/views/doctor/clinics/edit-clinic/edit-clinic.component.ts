@@ -13,10 +13,10 @@ export class EditClinicComponent implements OnInit {
 
   @Input() edit_clinicDto: ClinicDTO;
 
-  constructor(private clinicsService: ClinicsService,private datePipe: DatePipe) { }
+  constructor(private clinicsService: ClinicsService, private datePipe: DatePipe) { }
 
   ngOnInit() {
- 
+
   }
 
   deleteData() {
@@ -25,16 +25,20 @@ export class EditClinicComponent implements OnInit {
 
   saveData() {
     if (this.edit_clinicDto.clinic.date != undefined && this.edit_clinicDto.clinic.status != undefined && this.edit_clinicDto.clinic.time != undefined && this.edit_clinicDto.clinic.patientsCount != undefined) {
-      this.clinicsService.saveClinic(this.edit_clinicDto.clinic).subscribe(
-        (result) => {
-          if (result) {
-            this.edit_clinicDto.edit=false;
-          }
-        })
+      if (this.edit_clinicDto.update) {
+        this.edit_clinicDto.edit = false;
+      } else {
+        this.clinicsService.saveClinic(this.edit_clinicDto.clinic).subscribe(
+          (result) => {
+            if (result) {
+              this.edit_clinicDto.edit = false;
+            }
+          })
+      }
     }
   }
 
-  minDate(){
+  minDate() {
     let latest_date = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     return latest_date;
   }

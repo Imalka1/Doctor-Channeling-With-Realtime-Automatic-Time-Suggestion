@@ -15,11 +15,12 @@ export class FixedClinicComponent implements OnInit {
   ngOnInit() {
   }
 
-  changeData(){
-    this.fixed_clinicDto.edit=true;
+  changeData() {
+    this.fixed_clinicDto.edit = true;
+    this.fixed_clinicDto.update = true;
   }
 
-  deleteData(){
+  deleteData() {
     this.fixed_clinicDto.clinicDtos.splice(this.fixed_clinicDto.clinicDtos.indexOf(this.fixed_clinicDto), 1)
   }
 
