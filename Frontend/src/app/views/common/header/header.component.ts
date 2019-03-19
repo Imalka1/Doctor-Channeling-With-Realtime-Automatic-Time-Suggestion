@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, AfterContentChecked, AfterContentInit } from '@angular/core';
 import { Router } from '@angular/router';
 declare var custom_gallery: any;
 declare var custom_flex: any;
@@ -18,13 +18,16 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     custom_navigation();
     custom_owl();
-    custom_flex();
-    custom_date_picker();
-    custom_gallery();
+    // custom_flex();
+    // custom_date_picker();
+    // custom_gallery();
+    
   }
 
+  
+
   headerColor(){
-    if (this.router.url == '/') {
+    if (this.router.url == '/head/main') {
       return "";
     } else {
       return "header-bottoms";
@@ -32,7 +35,7 @@ export class HeaderComponent implements OnInit {
   }
 
   isHome() {
-    if (this.router.url == '/') {
+    if (this.router.url == '/head/main') {
       return true;
     } else {
       return false;

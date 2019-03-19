@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ClinicDTO } from 'src/app/dtos/ClinicDTO';
 import { Clinic } from 'src/app/dtos/Clinic';
@@ -23,12 +23,12 @@ export class ClinicsComponent implements OnInit {
   }
 
   ngOnInit() {
-    custom_navigation();
-    custom_owl();
-    custom_flex();
-    custom_date_picker();
-    custom_gallery();
-
+    // custom_navigation();
+    // custom_owl();
+    // custom_flex();
+    // custom_date_picker();
+    // custom_gallery();
+    
     this.loadAllClinics();
   }
 

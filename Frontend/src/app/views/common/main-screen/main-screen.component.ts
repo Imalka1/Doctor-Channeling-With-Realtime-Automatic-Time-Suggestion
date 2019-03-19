@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, AfterContentChecked, AfterContentInit } from '@angular/core';
 import { Router } from '@angular/router';
 declare var custom_gallery: any;
 declare var custom_flex: any;
@@ -16,11 +16,11 @@ export class MainScreenComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    custom_navigation();
-    custom_owl();
-    custom_flex();
-    custom_date_picker();
-    custom_gallery();
+    // custom_navigation();
+    // custom_owl();
+    // custom_flex();
+    // custom_date_picker();
+    // custom_gallery();
   }
 
   isDoctor() {
