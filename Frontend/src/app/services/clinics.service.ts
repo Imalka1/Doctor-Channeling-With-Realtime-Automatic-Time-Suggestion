@@ -21,6 +21,10 @@ export class ClinicsService {
     return this.http.post<boolean>(environment.backend_url + URL + "/updateClinic", clinic);
   }
 
+  cancelClinic(clinic: Clinic): Observable<boolean> {
+    return this.http.post<boolean>(environment.backend_url + URL + "/cancelClinic", clinic);
+  }
+
   removeClinic(clinic: Clinic): Observable<boolean> {
     return this.http.post<boolean>(environment.backend_url + URL + "/removeClinic", clinic);
   }

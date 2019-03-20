@@ -49,8 +49,18 @@ router.post('/updateClinic', (req, res) => {
     })
 });
 
+router.post('/cancelClinic', (req, res) => {
+    Clinic.findOneAndUpdate({ _id: req.body._id }, { status: req.body.status }, { useFindAndModify: false }, (err, doc) => {
+        if (!err) {
+            res.json(true)
+        } else {
+            console.log(err)
+            res.json(false)
+        }
+    })
+});
+
 router.post('/removeClinic', (req, res) => {
-    console.log(req.body._id)
     Clinic.findByIdAndDelete({ _id: req.body._id }, (err, doc) => {
         if (!err) {
             res.json(true)

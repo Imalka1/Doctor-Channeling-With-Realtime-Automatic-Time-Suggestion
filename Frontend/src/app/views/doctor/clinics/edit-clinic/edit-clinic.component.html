@@ -4,11 +4,11 @@
   <div class="col-sm-2"><input type="time" class="form-control" [(ngModel)]="edit_clinicDto.clinic.clinicTime"></div>
   <div class="col-sm-3"><input type="number" min="1" class="form-control"
       [(ngModel)]="edit_clinicDto.clinic.patientsCount" name="patientsCount"></div>
-  <div class="col-sm-2">Pending</div>
+  <div class="col-sm-2">{{edit_clinicDto.clinic.status}}</div>
   <div class="col-sm-1" style="text-align: center;cursor: pointer" (click)="saveClinic()">
     <i class="fa fa-check fa-1x" style="color: green"></i>
   </div>
-  <div class="col-sm-1" style="text-align: center;cursor: pointer" (click)="deleteClinic()">
+  <div class="col-sm-1" style="text-align: center;cursor: pointer" (click)="cancelClinic()">
     <i class="fa fa-times fa-1x" style="color: red"></i>
   </div>
 </div>

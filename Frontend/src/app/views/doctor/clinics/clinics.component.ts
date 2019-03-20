@@ -17,14 +17,15 @@ declare var custom_date_picker: any;
 export class ClinicsComponent implements OnInit {
 
   clinicDtos: Array<ClinicDTO> = new Array();
-  months: Array<String> = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  months: Array<String> = new Array();
+  years: Array<number> = new Array();
   monthIndex: number = 0;
   year: number = 0;
   date: Date;
   selectedMonth;
+  selectedYear;
 
   constructor(private router: Router, private clinicsService: ClinicsService) {
-
   }
 
   ngOnInit() {
@@ -115,15 +116,18 @@ export class ClinicsComponent implements OnInit {
     this.date = new Date();
     this.monthIndex = this.date.getMonth();
     this.year = this.date.getFullYear();
+    this.months.push('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+    for (let i = this.year - 20; i < this.year + 6; i++) {
+      this.years.push(i);
+    }
+    this.selectedYear = this.year;
     this.selectedMonth = this.months[this.monthIndex];
   }
 
-  getYear() {
-    return this.year;
-  }
-
   nextYear() {
-    this.year++;
+    if (this.date.getFullYear() + 5 > this.year) {
+      this.selectedYear = ++this.year;
+    }
     this.loadAllClinics();
   }
 
@@ -131,7 +135,6 @@ export class ClinicsComponent implements OnInit {
     if (this.monthIndex < 11) {
       this.selectedMonth = this.months[++this.monthIndex];
     } else {
-      this.year++;
       this.monthIndex = 0;
       this.selectedMonth = this.months[this.monthIndex];
     }
@@ -139,8 +142,8 @@ export class ClinicsComponent implements OnInit {
   }
 
   previousYear() {
-    if (this.date.getFullYear() < this.year) {
-      this.year--;
+    if (this.date.getFullYear() - 20 < this.year) {
+      this.selectedYear = --this.year;
     }
     this.loadAllClinics();
   }
@@ -148,8 +151,7 @@ export class ClinicsComponent implements OnInit {
   previousMonth() {
     if (this.monthIndex > 0) {
       this.selectedMonth = this.months[--this.monthIndex];
-    } else if (this.date.getFullYear() < this.year) {
-      this.year--;
+    } else {
       this.monthIndex = 11;
       this.selectedMonth = this.months[this.monthIndex];
     }
@@ -158,6 +160,11 @@ export class ClinicsComponent implements OnInit {
 
   changeMonth() {
     this.monthIndex = this.months.indexOf((this.selectedMonth));
+    this.loadAllClinics();
+  }
+
+  changeYear() {
+    this.year = this.selectedYear;
     this.loadAllClinics();
   }
 

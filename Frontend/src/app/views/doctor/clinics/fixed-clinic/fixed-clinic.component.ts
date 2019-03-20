@@ -20,13 +20,25 @@ export class FixedClinicComponent implements OnInit {
     this.fixed_clinicDto.edit = true;
   }
 
-  deleteClinic() {
-    this.clinicsService.removeClinic(this.fixed_clinicDto.clinic).subscribe(
-      (result) => {
-        if (result) {
-          this.fixed_clinicDto.clinicDtos.splice(this.fixed_clinicDto.clinicDtos.indexOf(this.fixed_clinicDto), 1)
-        }
-      })
+  cancelClinic() {
+    if (this.fixed_clinicDto.clinic._id != undefined && this.fixed_clinicDto.clinic.status == "OK") {
+      this.fixed_clinicDto.clinic.status = "Cancel";
+      this.clinicsService.cancelClinic(this.fixed_clinicDto.clinic).subscribe(
+        (result) => {
+          if (result) {
+            this.fixed_clinicDto.clinic.status = "Cancel";
+          }
+        })
+    } else if(this.fixed_clinicDto.clinic._id != undefined){
+      this.clinicsService.removeClinic(this.fixed_clinicDto.clinic).subscribe(
+        (result) => {
+          if (result) {
+            this.fixed_clinicDto.clinic.status = "Not yet";
+            this.fixed_clinicDto.clinic.clinicTime = "00:00";
+            this.fixed_clinicDto.clinic.patientsCount = 0;
+          }
+        })
+    }
   }
 
 }
