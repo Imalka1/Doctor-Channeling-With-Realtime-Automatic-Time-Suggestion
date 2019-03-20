@@ -1,8 +1,8 @@
 <div class="row" style="margin-top: 10px;padding-bottom: 10px;border-bottom: 1px black solid">
   <div class="col-sm-1">{{fixed_clinicDto.clinicDtos.indexOf(fixed_clinicDto)+1}}</div>
-  <div class="col-sm-3">{{fixed_clinicDto.clinic.date}} / (Daily)</div>
+  <div class="col-sm-2">{{fixed_clinicDto.clinic.date}}</div>
   <div class="col-sm-2">{{fixed_clinicDto.clinic.time}}</div>
-  <div class="col-sm-2">0 / {{fixed_clinicDto.clinic.patientsCount}}</div>
+  <div class="col-sm-3">0 / {{fixed_clinicDto.clinic.patientsCount}}</div>
   <div class="col-sm-2">{{fixed_clinicDto.clinic.status}}</div>
   <div class="col-sm-1" style="text-align: center;cursor: pointer" (click)="changeClinic()">
     <i class="fa fa-pencil fa-1x"></i>

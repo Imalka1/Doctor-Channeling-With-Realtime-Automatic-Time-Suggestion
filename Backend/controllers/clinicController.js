@@ -54,5 +54,5 @@ function updateClinics() {
 
 module.exports = {
     router: router,
-    flushOldClinics: flushOldClinics
+    updateClinics: updateClinics
 }

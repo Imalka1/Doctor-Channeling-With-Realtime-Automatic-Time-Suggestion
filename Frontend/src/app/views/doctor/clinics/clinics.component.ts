@@ -17,6 +17,8 @@ declare var custom_date_picker: any;
 export class ClinicsComponent implements OnInit {
 
   clinicDtos: Array<ClinicDTO> = new Array();
+  months: Array<String> = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  monthIndex: number = 0;
 
   constructor(private router: Router, private clinicsService: ClinicsService) {
 
@@ -28,7 +30,7 @@ export class ClinicsComponent implements OnInit {
     // custom_flex();
     // custom_date_picker();
     // custom_gallery();
-    
+    this.monthIndex = new Date().getMonth();
     this.loadAllClinics();
   }
 
@@ -64,6 +66,22 @@ export class ClinicsComponent implements OnInit {
         }
       }
     )
+  }
+
+  getMonth() {
+    return this.months[this.monthIndex];
+  }
+
+  nextMonth() {
+    if (this.monthIndex < 11) {
+      this.monthIndex++;
+    }
+  }
+
+  previousMonth() {
+    if (this.monthIndex > 0) {
+      this.monthIndex--;
+    }
   }
 
   changeData(consultation_row: HTMLElement) {

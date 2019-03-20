@@ -2,11 +2,17 @@
 
 <section id="about">
   <div class="container" style="font-size: 16px">
+    <div class="row" style="text-align: center;margin-bottom: 50px;font-weight: bold">
+        <div class="col-sm-2"><i class="fa fa-arrow-left fa-2x" (click)="previousMonth()"></i></div>
+        <div class="col-sm-4" style="font-size: 22px">2019</div>
+        <div class="col-sm-4" style="font-size: 22px">{{getMonth()}}</div>
+        <div class="col-sm-2"><i class="fa fa-arrow-right fa-2x" (click)="nextMonth()"></i></div>
+    </div>
     <div class="row" style="font-weight: bold;border-bottom: 1px black solid">
       <div class="col-sm-1">No</div>
-      <div class="col-sm-3">Date</div>
+      <div class="col-sm-2">Date</div>
       <div class="col-sm-2">Time</div>
-      <div class="col-sm-2">Patients count</div>
+      <div class="col-sm-3">Patients count</div>
       <div class="col-sm-2">Status</div>
       <div class="col-sm-1" style="text-align: center">Set</div>
       <div class="col-sm-1" style="text-align: center">Remove</div>
