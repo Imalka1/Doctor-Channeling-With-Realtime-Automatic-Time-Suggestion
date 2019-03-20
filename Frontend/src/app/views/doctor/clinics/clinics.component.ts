@@ -34,6 +34,7 @@ export class ClinicsComponent implements OnInit {
     // custom_date_picker();
     // custom_gallery();
     this.setYearAndMonth();
+    this.daysInMonth();
     this.loadAllClinics();
   }
 
@@ -56,19 +57,51 @@ export class ClinicsComponent implements OnInit {
   }
 
   loadAllClinics() {
+    this.clinicDtos = new Array();
+    for (let i = 0; i < this.daysInMonth(); i++) {
+      let clinic: Clinic = new Clinic();
+      if (this.monthIndex + 1 < 10) {
+        if ((i + 1) < 10) {
+          clinic.date = this.year + '-0' + (this.monthIndex + 1) + '-0' + (i + 1);
+        } else {
+          clinic.date = this.year + '-0' + (this.monthIndex + 1) + '-' + (i + 1);
+        }
+      } else {
+        if ((i + 1) < 10) {
+          clinic.date = this.year + '-' + (this.monthIndex + 1) + '-0' + (i + 1);
+        } else {
+          clinic.date = this.year + '-' + (this.monthIndex + 1) + '-' + (i + 1);
+        }
+      }
+      clinic.time = "00:00";
+      clinic.patientsCount = 0;
+      clinic.status = "Not yet";
+      let conDto: ClinicDTO = new ClinicDTO();
+      conDto.edit = false;
+      conDto.clinic = clinic;
+      conDto.clinicDtos = this.clinicDtos;
+      this.clinicDtos.push(conDto)
+    }
+    
     this.clinicsService.getAllClinics().subscribe(
       (result) => {
         for (let i = 0; i < result.length; i++) {
           let clinic: Clinic = result[i];
-          // console.log(clinic._id)
-          let conDto: ClinicDTO = new ClinicDTO();
-          conDto.edit = false;
-          conDto.clinic = clinic;
-          conDto.clinicDtos = this.clinicDtos;
-          this.clinicDtos.push(conDto)
+          for (let j = 0; j < this.clinicDtos.length; j++) {
+            if (this.clinicDtos[j].clinic.date == clinic.date) {
+              this.clinicDtos[j].clinic.status=clinic.status;
+              this.clinicDtos[j].clinic.time=clinic.time;
+              this.clinicDtos[j].clinic.patientsCount=clinic.patientsCount;
+            }
+          }
+
         }
       }
     )
+  }
+
+  daysInMonth() {
+    return new Date(this.year, this.monthIndex + 1, 0).getDate();
   }
 
   setYearAndMonth() {
@@ -84,6 +117,7 @@ export class ClinicsComponent implements OnInit {
 
   nextYear() {
     this.year++;
+    this.loadAllClinics();
   }
 
   nextMonth() {
@@ -94,12 +128,14 @@ export class ClinicsComponent implements OnInit {
       this.monthIndex = 0;
       this.selectedMonth = this.months[this.monthIndex];
     }
+    this.loadAllClinics();
   }
 
   previousYear() {
     if (this.date.getFullYear() < this.year) {
       this.year--;
     }
+    this.loadAllClinics();
   }
 
   previousMonth() {
@@ -110,10 +146,12 @@ export class ClinicsComponent implements OnInit {
       this.monthIndex = 11;
       this.selectedMonth = this.months[this.monthIndex];
     }
+    this.loadAllClinics();
   }
 
   changeMonth() {
     this.monthIndex = this.months.indexOf((this.selectedMonth));
+    this.loadAllClinics();
   }
 
   changeData(consultation_row: HTMLElement) {

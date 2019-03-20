@@ -1,8 +1,6 @@
 <div class="row" style="margin-top: 10px;padding-bottom: 10px;border-bottom: 1px black solid">
   <div class="col-sm-1">{{edit_clinicDto.clinicDtos.indexOf(edit_clinicDto)+1}}</div>
-  <div class="col-sm-2">
-    <input type="date" min="{{minDate()}}" class="form-control" [(ngModel)]="edit_clinicDto.clinic.date">
-  </div>
+  <div class="col-sm-2">{{edit_clinicDto.clinic.date}}</div>
   <div class="col-sm-2"><input type="time" class="form-control" [(ngModel)]="edit_clinicDto.clinic.time"></div>
   <div class="col-sm-3"><input type="number" min="1" class="form-control"
       [(ngModel)]="edit_clinicDto.clinic.patientsCount" name="patientsCount"></div>
