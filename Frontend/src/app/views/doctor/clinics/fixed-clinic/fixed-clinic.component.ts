@@ -18,7 +18,6 @@ export class FixedClinicComponent implements OnInit {
 
   changeClinic() {
     this.fixed_clinicDto.edit = true;
-    this.fixed_clinicDto.update = true;
   }
 
   deleteClinic() {

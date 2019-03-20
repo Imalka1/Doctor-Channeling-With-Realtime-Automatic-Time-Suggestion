@@ -89,13 +89,14 @@ export class ClinicsComponent implements OnInit {
     let clinic: Clinic = new Clinic();
     clinic.clinicDateYear = this.year;
     clinic.clinicDateMonth = (this.monthIndex + 1);
-    
+
     this.clinicsService.getAllClinicsViaYearAndMonth(clinic).subscribe(
       (result) => {
         for (let i = 0; i < result.length; i++) {
           let clinic: Clinic = result[i];
           for (let j = 0; j < this.clinicDtos.length; j++) {
             if (this.clinicDtos[j].clinic.clinicDate == clinic.clinicDate) {
+              this.clinicDtos[j].clinic._id = clinic._id;
               this.clinicDtos[j].clinic.status = clinic.status;
               this.clinicDtos[j].clinic.clinicTime = clinic.clinicTime;
               this.clinicDtos[j].clinic.patientsCount = clinic.patientsCount;
