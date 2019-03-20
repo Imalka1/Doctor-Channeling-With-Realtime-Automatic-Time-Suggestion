@@ -25,8 +25,8 @@ export class ClinicsService {
     return this.http.post<boolean>(environment.backend_url + URL + "/removeClinic", clinic);
   }
 
-  getAllClinics(): Observable<Array<Clinic>> {
-    return this.http.get<Array<Clinic>>(environment.backend_url + URL + "/getAllClinics");
+  getAllClinicsViaYearAndMonth(clinic: Clinic): Observable<Array<Clinic>> {
+    return this.http.post<Array<Clinic>>(environment.backend_url + URL + "/getAllClinicsViaYearAndMonth", clinic);
   }
 
   // updateStudent(student: Student): Observable<boolean> {

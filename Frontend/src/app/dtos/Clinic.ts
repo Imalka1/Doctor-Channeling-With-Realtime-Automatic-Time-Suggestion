@@ -1,7 +1,10 @@
 export class Clinic {
     _id: String;
-    date: String;
-    time: String;
+    clinicDate:String;
+    clinicDateYear: number;
+    clinicDateMonth: number;
+    clinicDateDay: number;
+    clinicTime: String;
     patientsCount: number;
     status: String;
 }

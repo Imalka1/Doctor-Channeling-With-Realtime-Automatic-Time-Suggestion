@@ -62,18 +62,21 @@ export class ClinicsComponent implements OnInit {
       let clinic: Clinic = new Clinic();
       if (this.monthIndex + 1 < 10) {
         if ((i + 1) < 10) {
-          clinic.date = this.year + '-0' + (this.monthIndex + 1) + '-0' + (i + 1);
+          clinic.clinicDate = this.year + '-0' + (this.monthIndex + 1) + '-0' + (i + 1);
         } else {
-          clinic.date = this.year + '-0' + (this.monthIndex + 1) + '-' + (i + 1);
+          clinic.clinicDate = this.year + '-0' + (this.monthIndex + 1) + '-' + (i + 1);
         }
       } else {
         if ((i + 1) < 10) {
-          clinic.date = this.year + '-' + (this.monthIndex + 1) + '-0' + (i + 1);
+          clinic.clinicDate = this.year + '-' + (this.monthIndex + 1) + '-0' + (i + 1);
         } else {
-          clinic.date = this.year + '-' + (this.monthIndex + 1) + '-' + (i + 1);
+          clinic.clinicDate = this.year + '-' + (this.monthIndex + 1) + '-' + (i + 1);
         }
       }
-      clinic.time = "00:00";
+      clinic.clinicDateYear = this.year;
+      clinic.clinicDateMonth = this.monthIndex + 1;
+      clinic.clinicDateDay = (i + 1);
+      clinic.clinicTime = "00:00";
       clinic.patientsCount = 0;
       clinic.status = "Not yet";
       let conDto: ClinicDTO = new ClinicDTO();
@@ -82,19 +85,22 @@ export class ClinicsComponent implements OnInit {
       conDto.clinicDtos = this.clinicDtos;
       this.clinicDtos.push(conDto)
     }
+
+    let clinic: Clinic = new Clinic();
+    clinic.clinicDateYear = this.year;
+    clinic.clinicDateMonth = (this.monthIndex + 1);
     
-    this.clinicsService.getAllClinics().subscribe(
+    this.clinicsService.getAllClinicsViaYearAndMonth(clinic).subscribe(
       (result) => {
         for (let i = 0; i < result.length; i++) {
           let clinic: Clinic = result[i];
           for (let j = 0; j < this.clinicDtos.length; j++) {
-            if (this.clinicDtos[j].clinic.date == clinic.date) {
-              this.clinicDtos[j].clinic.status=clinic.status;
-              this.clinicDtos[j].clinic.time=clinic.time;
-              this.clinicDtos[j].clinic.patientsCount=clinic.patientsCount;
+            if (this.clinicDtos[j].clinic.clinicDate == clinic.clinicDate) {
+              this.clinicDtos[j].clinic.status = clinic.status;
+              this.clinicDtos[j].clinic.clinicTime = clinic.clinicTime;
+              this.clinicDtos[j].clinic.patientsCount = clinic.patientsCount;
             }
           }
-
         }
       }
     )

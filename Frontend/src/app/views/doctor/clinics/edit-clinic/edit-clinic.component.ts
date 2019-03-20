@@ -33,7 +33,7 @@ export class EditClinicComponent implements OnInit {
   }
 
   saveClinic() {
-    if (this.edit_clinicDto.clinic.date != undefined && this.edit_clinicDto.clinic.status != undefined && this.edit_clinicDto.clinic.time != undefined && this.edit_clinicDto.clinic.patientsCount != undefined) {
+    if (this.edit_clinicDto.clinic.status != undefined && this.edit_clinicDto.clinic.clinicTime != undefined && this.edit_clinicDto.clinic.patientsCount != undefined) {
       if (this.edit_clinicDto.update) {
         this.clinicsService.updateClinic(this.edit_clinicDto.clinic).subscribe(
           (result) => {

@@ -2,10 +2,28 @@ const express = require('express');
 var router = express.Router();
 var { Clinic } = require('../models/clinic');
 
+router.get('/add', (req, res) => {
+    var clinic = new Clinic();
+    clinic.clinicDate = '2019-03-06';
+    clinic.clinicDateYear='2019';
+    clinic.clinicDateMonth='3';
+    clinic.clinicDateDay='6';
+    clinic.clinicTime = '10:10';
+    clinic.patientsCount = 3;
+    clinic.status = "Pending";
+    clinic.save((err, doc) => {
+        if (!err) {
+            res.json(clinic)
+        } else {
+            res.json(undefined)
+        }
+    });
+});
+
 router.post('/addClinic', (req, res) => {
     var clinic = new Clinic();
-    clinic.date = req.body.date;
-    clinic.time = req.body.time;
+    clinic.date = req.body.clinicDate;
+    clinic.time = req.body.clinicTime;
     clinic.patientsCount = req.body.patientsCount;
     clinic.status = req.body.status;
     clinic.save((err, doc) => {
@@ -40,10 +58,17 @@ router.post('/removeClinic', (req, res) => {
     })
 });
 
-router.get('/getAllClinics', (req, res) => {
-    Clinic.find((err, docs) => {
+router.post('/getAllClinicsViaYearAndMonth', (req, res) => {
+    console.log(req.body)
+    Clinic.find({
+        clinicDateYear: req.body.clinicDateYear,
+        clinicDateMonth: req.body.clinicDateMonth
+    }, (err, docs) => {
         if (!err) {
+            console.log(docs)
             res.send(docs);
+        } else {
+            console.log(err)
         }
     })
 });
