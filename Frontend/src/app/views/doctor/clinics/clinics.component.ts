@@ -19,6 +19,9 @@ export class ClinicsComponent implements OnInit {
   clinicDtos: Array<ClinicDTO> = new Array();
   months: Array<String> = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   monthIndex: number = 0;
+  year: number = 0;
+  date: Date;
+  selectedMonth;
 
   constructor(private router: Router, private clinicsService: ClinicsService) {
 
@@ -30,7 +33,7 @@ export class ClinicsComponent implements OnInit {
     // custom_flex();
     // custom_date_picker();
     // custom_gallery();
-    this.monthIndex = new Date().getMonth();
+    this.setYearAndMonth();
     this.loadAllClinics();
   }
 
@@ -68,20 +71,49 @@ export class ClinicsComponent implements OnInit {
     )
   }
 
-  getMonth() {
-    return this.months[this.monthIndex];
+  setYearAndMonth() {
+    this.date = new Date();
+    this.monthIndex = this.date.getMonth();
+    this.year = this.date.getFullYear();
+    this.selectedMonth = this.months[this.monthIndex];
+  }
+
+  getYear() {
+    return this.year;
+  }
+
+  nextYear() {
+    this.year++;
   }
 
   nextMonth() {
     if (this.monthIndex < 11) {
-      this.monthIndex++;
+      this.selectedMonth = this.months[++this.monthIndex];
+    } else {
+      this.year++;
+      this.monthIndex = 0;
+      this.selectedMonth = this.months[this.monthIndex];
+    }
+  }
+
+  previousYear() {
+    if (this.date.getFullYear() < this.year) {
+      this.year--;
     }
   }
 
   previousMonth() {
     if (this.monthIndex > 0) {
-      this.monthIndex--;
+      this.selectedMonth = this.months[--this.monthIndex];
+    } else if (this.date.getFullYear() < this.year) {
+      this.year--;
+      this.monthIndex = 11;
+      this.selectedMonth = this.months[this.monthIndex];
     }
+  }
+
+  changeMonth() {
+    this.monthIndex = this.months.indexOf((this.selectedMonth));
   }
 
   changeData(consultation_row: HTMLElement) {
