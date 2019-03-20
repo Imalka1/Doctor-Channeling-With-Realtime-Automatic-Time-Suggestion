@@ -32,7 +32,12 @@
       <div class="col-sm-1" style="text-align: center">Set</div>
       <div class="col-sm-1" style="text-align: center">Cancel</div>
     </div>
-    <div *ngFor="let clinicDto of clinicDtos">
+    <style>
+    .clinicDivs:hover{
+      font-weight: bold
+    }
+    </style>
+    <div class="clinicDivs" *ngFor="let clinicDto of clinicDtos" style="cursor: pointer;">
       <app-fixed-clinic [fixed_clinicDto]="clinicDto" *ngIf="!clinicDto.edit"></app-fixed-clinic>
       <app-edit-clinic [edit_clinicDto]="clinicDto" *ngIf="clinicDto.edit"></app-edit-clinic>
     </div>
