@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 
 var Clinic = mongoose.model('Clinic', {
-    clinicDate: { type: String },
-    clinicDateYear: { type: Number },
-    clinicDateMonth: { type: Number },
-    clinicDateDay: { type: Number },
+    clinicDate: { type: Date },
     clinicTime: { type: String },
     patientsCount: { type: Number },
     status: { type: String }

@@ -4,10 +4,7 @@ var { Clinic } = require('../models/clinic');
 
 router.get('/add', (req, res) => {
     var clinic = new Clinic();
-    clinic.clinicDate = '2019-03-06';
-    clinic.clinicDateYear = '2019';
-    clinic.clinicDateMonth = '3';
-    clinic.clinicDateDay = '6';
+    clinic.clinicDate = new Date('2019-03-03');
     clinic.clinicTime = '10:10';
     clinic.patientsCount = 3;
     clinic.status = "Pending";
@@ -23,9 +20,6 @@ router.get('/add', (req, res) => {
 router.post('/addClinic', (req, res) => {
     var clinic = new Clinic();
     clinic.clinicDate = req.body.clinicDate;
-    clinic.clinicDateYear = req.body.clinicDateYear;
-    clinic.clinicDateMonth = req.body.clinicDateMonth;
-    clinic.clinicDateDay = req.body.clinicDateDay;
     clinic.clinicTime = req.body.clinicTime;
     clinic.patientsCount = req.body.patientsCount;
     clinic.status = req.body.status;
@@ -73,10 +67,10 @@ router.post('/removeClinic', (req, res) => {
 
 router.post('/getAllClinicsViaYearAndMonth', (req, res) => {
     console.log(req.body)
-    Clinic.find({
-        clinicDateYear: req.body.clinicDateYear,
-        clinicDateMonth: req.body.clinicDateMonth
-    }, (err, docs) => {
+    Clinic.aggregate([
+        { $project: { clinicTime: 1, patientsCount: 1, status: 1, clinicDate: 1, month: { $month: '$clinicDate' } } },
+        { $match: { month: 3 } }
+    ], (err, docs) => {
         if (!err) {
             console.log(docs)
             res.send(docs);
