@@ -1,14 +1,23 @@
-<div class="row" style="margin-top: 10px;padding-bottom: 10px;border-bottom: 1px black solid">
+<style>
+  .clinicDivs:hover {
+    font-weight: bold;
+  }
+
+  .clinicDivs:hover .clinicDivsFonts {
+    font-size: 20px;
+  }
+</style>
+<div class="row clinicDivs" style="margin-top: 10px;padding-bottom: 10px;border-bottom: 1px black solid">
   <div class="col-sm-1">{{edit_clinicDto.clinicDtos.indexOf(edit_clinicDto)+1}}</div>
   <div class="col-sm-2">{{edit_clinicDto.clinic.clinicDate}}</div>
   <div class="col-sm-2"><input type="time" class="form-control" [(ngModel)]="edit_clinicDto.clinic.clinicTime"></div>
   <div class="col-sm-3"><input type="number" min="1" class="form-control"
       [(ngModel)]="edit_clinicDto.clinic.patientsCount" name="patientsCount"></div>
   <div class="col-sm-2">{{edit_clinicDto.clinic.status}}</div>
-  <div class="col-sm-1" style="text-align: center;cursor: pointer" (click)="saveClinic()">
+  <div class="col-sm-1 clinicDivsFonts" style="text-align: center;cursor: pointer" (click)="saveClinic()">
     <i class="fa fa-check fa-1x" style="color: green"></i>
   </div>
-  <div class="col-sm-1" style="text-align: center;cursor: pointer" (click)="cancelClinic()">
+  <div class="col-sm-1 clinicDivsFonts" style="text-align: center;cursor: pointer" (click)="cancelClinic()">
     <i class="fa fa-times fa-1x" style="color: red"></i>
   </div>
 </div>
