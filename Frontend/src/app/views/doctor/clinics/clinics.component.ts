@@ -24,6 +24,7 @@ export class ClinicsComponent implements OnInit {
   date: Date;
   selectedMonth;
   selectedYear;
+  dropdownMonthWidth;
 
   constructor(private router: Router, private clinicsService: ClinicsService) {
   }
@@ -37,6 +38,7 @@ export class ClinicsComponent implements OnInit {
     this.setYearAndMonth();
     this.daysInMonth();
     this.loadAllClinics();
+    this.setWidthDropdownMonth();
   }
 
   addField() {
@@ -91,7 +93,7 @@ export class ClinicsComponent implements OnInit {
         for (let i = 0; i < result.length; i++) {
           let clinic: Clinic = result[i];
           for (let j = 0; j < this.clinicDtos.length; j++) {
-            if (this.clinicDtos[j].clinic.clinicDate+'T00:00:00.000Z' == clinic.clinicDate) {
+            if (this.clinicDtos[j].clinic.clinicDate + 'T00:00:00.000Z' == clinic.clinicDate) {
               this.clinicDtos[j].clinic._id = clinic._id;
               this.clinicDtos[j].clinic.status = clinic.status;
               this.clinicDtos[j].clinic.clinicTime = clinic.clinicTime;
@@ -134,6 +136,7 @@ export class ClinicsComponent implements OnInit {
       this.selectedMonth = this.months[this.monthIndex];
     }
     this.loadAllClinics();
+    this.setWidthDropdownMonth();
   }
 
   previousYear() {
@@ -151,16 +154,49 @@ export class ClinicsComponent implements OnInit {
       this.selectedMonth = this.months[this.monthIndex];
     }
     this.loadAllClinics();
+    this.setWidthDropdownMonth();
   }
 
   changeMonth() {
     this.monthIndex = this.months.indexOf((this.selectedMonth));
     this.loadAllClinics();
+    this.setWidthDropdownMonth();
   }
 
   changeYear() {
     this.year = this.selectedYear;
     this.loadAllClinics();
+  }
+
+  setWidthDropdownMonth() {
+    switch (this.selectedMonth) {
+      case this.months[0]: this.dropdownMonthWidth = '125px';
+        break;
+      case this.months[1]: this.dropdownMonthWidth = '140px';
+        break;
+      case this.months[2]: this.dropdownMonthWidth = '105px';
+        break;
+      case this.months[3]: this.dropdownMonthWidth = '85px';
+        break;
+      case this.months[4]: this.dropdownMonthWidth = '80px';
+        break;
+      case this.months[5]: this.dropdownMonthWidth = '82px';
+        break;
+      case this.months[6]: this.dropdownMonthWidth = '78px';
+        break;
+      case this.months[7]: this.dropdownMonthWidth = '115px';
+        break;
+      case this.months[8]: this.dropdownMonthWidth = '164px';
+        break;
+      case this.months[9]: this.dropdownMonthWidth = '130px';
+        break;
+      case this.months[10]: this.dropdownMonthWidth = '160px';
+        break;
+      case this.months[11]: this.dropdownMonthWidth = '158px';
+        break;
+      default:
+        break;
+    }
   }
 
   changeData(consultation_row: HTMLElement) {
