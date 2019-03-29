@@ -20,7 +20,7 @@ export class ClinicsComponent implements OnInit {
   months: Array<String> = new Array();
   years: Array<number> = new Array();
   monthIndex: number = 0;
-  year: number = 0;
+  yearIndex: number = 0;
   date: Date;
   selectedMonth;
   selectedYear;
@@ -30,13 +30,7 @@ export class ClinicsComponent implements OnInit {
   }
 
   ngOnInit() {
-    // custom_navigation();
-    // custom_owl();
-    // custom_flex();
-    // custom_date_picker();
-    // custom_gallery();
     this.setYearAndMonth();
-    this.daysInMonth();
     this.loadAllClinics();
     this.setWidthDropdownMonth();
   }
@@ -60,26 +54,30 @@ export class ClinicsComponent implements OnInit {
   }
 
   loadAllClinics() {
+    var daysInMonth = this.daysInMonth();
     this.clinicDtos = new Array();
-    for (let i = 0; i < this.daysInMonth(); i++) {
+    for (let i = 0; i < daysInMonth; i++) {
       let clinic: Clinic = new Clinic();
       if (this.monthIndex + 1 < 10) {
         if ((i + 1) < 10) {
-          clinic.clinicDate = this.year + '-0' + (this.monthIndex + 1) + '-0' + (i + 1);
+          clinic.clinicDate = this.yearIndex + '-0' + (this.monthIndex + 1) + '-0' + (i + 1);
         } else {
-          clinic.clinicDate = this.year + '-0' + (this.monthIndex + 1) + '-' + (i + 1);
+          clinic.clinicDate = this.yearIndex + '-0' + (this.monthIndex + 1) + '-' + (i + 1);
         }
       } else {
         if ((i + 1) < 10) {
-          clinic.clinicDate = this.year + '-' + (this.monthIndex + 1) + '-0' + (i + 1);
+          clinic.clinicDate = this.yearIndex + '-' + (this.monthIndex + 1) + '-0' + (i + 1);
         } else {
-          clinic.clinicDate = this.year + '-' + (this.monthIndex + 1) + '-' + (i + 1);
+          clinic.clinicDate = this.yearIndex + '-' + (this.monthIndex + 1) + '-' + (i + 1);
         }
       }
       clinic.clinicTime = "00:00";
       clinic.patientsCount = 0;
       clinic.status = "Not yet";
       let conDto: ClinicDTO = new ClinicDTO();
+      if (this.date.getFullYear() + '-' + (this.date.getMonth() + 1) + '-' + this.date.getDate() == this.yearIndex + '-' + (this.monthIndex + 1) + '-' + (i + 1)) {
+        conDto.isToday = true;
+      }
       conDto.edit = false;
       conDto.clinic = clinic;
       conDto.clinicDtos = this.clinicDtos;
@@ -87,6 +85,7 @@ export class ClinicsComponent implements OnInit {
     }
 
     let clinic: Clinic = new Clinic();
+    clinic.clinicDate = this.yearIndex + '-' + (this.monthIndex + 1);
 
     this.clinicsService.getAllClinicsViaYearAndMonth(clinic).subscribe(
       (result) => {
@@ -98,6 +97,7 @@ export class ClinicsComponent implements OnInit {
               this.clinicDtos[j].clinic.status = clinic.status;
               this.clinicDtos[j].clinic.clinicTime = clinic.clinicTime;
               this.clinicDtos[j].clinic.patientsCount = clinic.patientsCount;
+              return;
             }
           }
         }
@@ -106,24 +106,24 @@ export class ClinicsComponent implements OnInit {
   }
 
   daysInMonth() {
-    return new Date(this.year, this.monthIndex + 1, 0).getDate();
+    return new Date(this.yearIndex, this.monthIndex + 1, 0).getDate();
   }
 
   setYearAndMonth() {
     this.date = new Date();
     this.monthIndex = this.date.getMonth();
-    this.year = this.date.getFullYear();
+    this.yearIndex = this.date.getFullYear();
     this.months.push('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
-    for (let i = this.year - 20; i < this.year + 6; i++) {
+    for (let i = this.yearIndex - 20; i < this.yearIndex + 6; i++) {
       this.years.push(i);
     }
-    this.selectedYear = this.year;
+    this.selectedYear = this.yearIndex;
     this.selectedMonth = this.months[this.monthIndex];
   }
 
   nextYear() {
-    if (this.date.getFullYear() + 5 > this.year) {
-      this.selectedYear = ++this.year;
+    if (this.date.getFullYear() + 5 > this.yearIndex) {
+      this.selectedYear = ++this.yearIndex;
     }
     this.loadAllClinics();
   }
@@ -140,8 +140,8 @@ export class ClinicsComponent implements OnInit {
   }
 
   previousYear() {
-    if (this.date.getFullYear() - 20 < this.year) {
-      this.selectedYear = --this.year;
+    if (this.date.getFullYear() - 20 < this.yearIndex) {
+      this.selectedYear = --this.yearIndex;
     }
     this.loadAllClinics();
   }
@@ -164,7 +164,7 @@ export class ClinicsComponent implements OnInit {
   }
 
   changeYear() {
-    this.year = this.selectedYear;
+    this.yearIndex = this.selectedYear;
     this.loadAllClinics();
   }
 

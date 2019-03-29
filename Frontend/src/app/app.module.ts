@@ -14,6 +14,7 @@ import { FixedClinicComponent } from './views/doctor/clinics/fixed-clinic/fixed-
 import { HttpClientModule } from '@angular/common/http';
 import { ClinicsService } from './services/clinics.service';
 import { DatePipe } from '@angular/common';
+import { PatientsComponent } from './views/doctor/patients/patients.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DatePipe } from '@angular/common';
     ChannelingsComponent,
     ClinicsComponent,
     EditClinicComponent,
-    FixedClinicComponent
+    FixedClinicComponent,
+    PatientsComponent
   ],
   imports: [
     BrowserModule,

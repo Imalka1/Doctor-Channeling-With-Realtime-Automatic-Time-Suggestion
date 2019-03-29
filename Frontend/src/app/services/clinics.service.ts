@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Clinic } from '../dtos/Clinic';
+import { ClinicDTO } from '../dtos/ClinicDTO';
 
 const URL = "/clinics";
 

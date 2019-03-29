@@ -34,8 +34,16 @@ export class HeaderComponent implements OnInit {
   //   }
   // }
 
-  isHome() {
+  isHomeActive(){
     if (this.router.url == '/head/main') {
+      return "active";
+    } else {
+      return "";
+    }
+  }
+
+  isPatientsPanel() {
+    if (this.router.url == '/head/patients') {
       return true;
     } else {
       return false;

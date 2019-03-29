@@ -66,10 +66,11 @@ router.post('/removeClinic', (req, res) => {
 });
 
 router.post('/getAllClinicsViaYearAndMonth', (req, res) => {
-    console.log(req.body)
+    var yearIndex = parseInt(req.body.clinicDate.split('-')[0].trim());
+    var monthIndex = parseInt(req.body.clinicDate.split('-')[1].trim());
     Clinic.aggregate([
-        { $project: { clinicTime: 1, patientsCount: 1, status: 1, clinicDate: 1, month: { $month: '$clinicDate' } } },
-        { $match: { month: 3 } }
+        { $project: { clinicTime: 1, patientsCount: 1, status: 1, clinicDate: 1, month: { $month: '$clinicDate' }, year: { $year: '$clinicDate' } } },
+        { $match: { month: monthIndex, year: yearIndex } }
     ], (err, docs) => {
         if (!err) {
             console.log(docs)

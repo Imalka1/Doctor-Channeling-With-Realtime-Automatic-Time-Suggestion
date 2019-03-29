@@ -51,4 +51,12 @@ export class EditClinicComponent implements OnInit {
     let latest_date = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     return latest_date;
   }
+
+  isToday() {
+    if (this.edit_clinicDto.isToday) {
+      return "date_today";
+    } else {
+      return "";
+    }
+  }
 }

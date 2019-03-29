@@ -6,18 +6,26 @@
   .clinicDivs:hover .clinicDivsFonts {
     font-size: 20px;
   }
+
+  .date_today{
+    color: rgb(2, 138, 2);
+    font-weight: bold;
+  }
 </style>
-<div class="row clinicDivs" style="margin-top: 10px;padding-bottom: 10px;border-bottom: 1px black solid">
+<div class="row clinicDivs {{isToday()}}" style="margin-top: 10px;padding-bottom: 10px;border-bottom: 1px black solid">
   <div class="col-sm-1">{{edit_clinicDto.clinicDtos.indexOf(edit_clinicDto)+1}}</div>
   <div class="col-sm-2">{{edit_clinicDto.clinic.clinicDate}}</div>
   <div class="col-sm-2"><input type="time" class="form-control" [(ngModel)]="edit_clinicDto.clinic.clinicTime"></div>
-  <div class="col-sm-3"><input type="number" min="1" class="form-control"
+  <div class="col-sm-2"><input type="number" min="1" class="form-control"
       [(ngModel)]="edit_clinicDto.clinic.patientsCount" name="patientsCount"></div>
   <div class="col-sm-2">{{edit_clinicDto.clinic.status}}</div>
-  <div class="col-sm-1 clinicDivsFonts" style="text-align: center;cursor: pointer" (click)="saveClinic()">
-    <i class="fa fa-check fa-1x" style="color: green"></i>
+  <div class="col-sm-1" style="text-align: center;cursor: pointer">
+    <i class="fa fa-search fa-1x clinicDivsFonts" style="color: rgb(136, 83, 4)"></i>
   </div>
-  <div class="col-sm-1 clinicDivsFonts" style="text-align: center;cursor: pointer" (click)="cancelClinic()">
-    <i class="fa fa-times fa-1x" style="color: red"></i>
+  <div class="col-sm-1" style="text-align: center;cursor: pointer" (click)="saveClinic()">
+    <i class="fa fa-check fa-1x clinicDivsFonts" style="color: green"></i>
+  </div>
+  <div class="col-sm-1" style="text-align: center;cursor: pointer" (click)="cancelClinic()">
+    <i class="fa fa-times fa-1x clinicDivsFonts" style="color: red"></i>
   </div>
 </div>
