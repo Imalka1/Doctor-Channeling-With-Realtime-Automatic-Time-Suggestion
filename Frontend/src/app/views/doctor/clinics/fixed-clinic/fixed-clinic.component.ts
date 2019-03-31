@@ -50,7 +50,7 @@ export class FixedClinicComponent implements OnInit {
     }
   }
 
-  patientsPanel() {
-    this.router.navigate(['/head/patients']);
+  patientsPanel(clinicDate) {
+    this.router.navigate(['/head/patients'], { queryParams: { clinicDate: clinicDate } });
   }
 }

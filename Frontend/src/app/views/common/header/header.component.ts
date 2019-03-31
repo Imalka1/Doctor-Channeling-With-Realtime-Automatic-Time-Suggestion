@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, AfterContentChecked, AfterContentInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 declare var custom_gallery: any;
 declare var custom_flex: any;
 declare var custom_navigation: any;
@@ -12,8 +12,8 @@ declare var custom_date_picker: any;
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  
-  constructor(private router: Router) { }
+
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     custom_navigation();
@@ -21,10 +21,10 @@ export class HeaderComponent implements OnInit {
     // custom_flex();
     // custom_date_picker();
     // custom_gallery();
-    
+
   }
 
-  
+
 
   // headerColor(){
   //   if (this.router.url == '/head/main') {
@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit {
   //   }
   // }
 
-  isHomeActive(){
+  isHomeActive() {
     if (this.router.url == '/head/main') {
       return "active";
     } else {
@@ -43,7 +43,7 @@ export class HeaderComponent implements OnInit {
   }
 
   isPatientsPanel() {
-    if (this.router.url == '/head/patients') {
+    if (this.route.snapshot.queryParamMap.get('clinicDate') != undefined) {
       return true;
     } else {
       return false;

@@ -25,7 +25,8 @@ const routes: Routes = [
       {
         path: 'patients',
         component: PatientsComponent
-      }]
+      }
+    ]
   },
   { path: '', pathMatch: "full", redirectTo: '/head/main' },
 ];

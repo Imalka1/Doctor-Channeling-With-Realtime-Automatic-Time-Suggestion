@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-patients',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientsComponent implements OnInit {
 
-  constructor() { }
+  clinicDate: String;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.clinicDate = this.route.snapshot.queryParamMap.get('clinicDate');
   }
 
 }
