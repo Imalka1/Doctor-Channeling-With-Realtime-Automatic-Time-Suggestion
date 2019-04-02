@@ -1,30 +1,34 @@
 <!-- <app-header></app-header> -->
 <section id="about" style="padding-top: 120px">
   <div class="container" style="font-size: 16px">
-    <div class="row" style="margin-bottom: 50px;font-weight: bold">
-      <div class="col-sm-12">
-        Date : {{clinicDate}}
+    <div class="row" style="margin-bottom: 50px;font-weight: bold;font-size: 20px">
+      <div class="col-sm-4">
+        Date : <span style="font-weight: normal">{{clinicDate}}</span>
+      </div>
+      <div class="col-sm-4">
+        Ongoing : <span style="font-weight: normal">Not yet</span>
+      </div>
+      <div class="col-sm-4">
+        Time : <span style="font-weight: normal">11:30 PM</span>
       </div>
     </div>
     <div class="row" style="font-weight: bold;border-bottom: 1px black solid">
       <div class="col-sm-1">No</div>
       <div class="col-sm-2">Time</div>
-      <div class="col-sm-3">Patients count</div>
-      <div class="col-sm-2">Status</div>
-      <div class="col-sm-1" style="text-align: center">Set</div>
-      <div class="col-sm-1" style="text-align: center">Cancel</div>
+      <div class="col-sm-8">Patient</div>
+      <div class="col-sm-1" style="text-align: center">Explore</div>
     </div>
     <div *ngFor="let clinicDto of clinicDtos" style="cursor: pointer;">
       <app-fixed-clinic [fixed_clinicDto]="clinicDto" *ngIf="!clinicDto.edit"></app-fixed-clinic>
       <app-edit-clinic [edit_clinicDto]="clinicDto" *ngIf="clinicDto.edit"></app-edit-clinic>
     </div>
   </div><!-- end columns -->
-  <!-- <div class="container">
+  <div class="row" *ngIf="isToday()">
     <div class="col-sm-12" style="margin-top: 50px">
       <button class="btn btn-warning" style="position: absolute;left: 50%;transform: translateX(-50%)"
-        (click)="addField()">add clinic</button>
+        (click)="addField()">start clinic</button>
     </div>
-  </div> -->
+  </div>
 </section><!-- end about -->
 
 <app-footer></app-footer>

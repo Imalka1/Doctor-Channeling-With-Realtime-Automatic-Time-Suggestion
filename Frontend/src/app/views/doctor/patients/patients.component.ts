@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PatientsComponent implements OnInit {
 
   clinicDate: String;
+  date: Date;
 
   constructor(private route: ActivatedRoute) { }
 
@@ -16,4 +17,12 @@ export class PatientsComponent implements OnInit {
     this.clinicDate = this.route.snapshot.queryParamMap.get('clinicDate');
   }
 
+  isToday() {
+    this.date = new Date();
+    if (this.clinicDate == this.date.toISOString().split('T')[0]) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
