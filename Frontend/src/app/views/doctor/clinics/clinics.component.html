@@ -39,8 +39,8 @@
       <div class="col-sm-1" style="text-align: center">Cancel</div>
     </div>
     <ng-container *ngFor="let clinicDto of clinicDtos">
-      <app-fixed-clinic [fixed_clinicDto]="clinicDto" *ngIf="!clinicDto.edit" style="cursor: pointer"></app-fixed-clinic>
-      <app-edit-clinic [edit_clinicDto]="clinicDto" *ngIf="clinicDto.edit" style="cursor: pointer"></app-edit-clinic>
+      <app-fixed-clinic [fixed_clinicDto]="clinicDto" *ngIf="!clinicDto.edit" style="cursor: default"></app-fixed-clinic>
+      <app-edit-clinic [edit_clinicDto]="clinicDto" *ngIf="clinicDto.edit" style="cursor: default"></app-edit-clinic>
     </ng-container>
   </div><!-- end columns -->
 </section><!-- end about -->
