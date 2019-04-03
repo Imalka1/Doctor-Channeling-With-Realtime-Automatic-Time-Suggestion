@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-patients',
@@ -11,10 +12,10 @@ export class PatientsComponent implements OnInit {
   clinicDate: String;
   date: Date;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,private datePipe:DatePipe) { }
 
   ngOnInit() {
-    this.clinicDate = this.route.snapshot.queryParamMap.get('clinicDate');
+    this.clinicDate = this.datePipe.transform(this.route.snapshot.queryParamMap.get('clinicDate'),'yyyy-MM-dd');
   }
 
   isToday() {

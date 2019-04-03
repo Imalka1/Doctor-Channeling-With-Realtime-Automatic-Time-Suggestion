@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ClinicDTO } from 'src/app/dtos/ClinicDTO';
-import { ClinicsService } from 'src/app/services/clinics.service';
-import { Router } from '@angular/router';
+import {Component, OnInit, Input} from '@angular/core';
+import {ClinicDTO} from 'src/app/dtos/ClinicDTO';
+import {ClinicsService} from 'src/app/services/clinics.service';
+import {Router} from '@angular/router';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-fixed-clinic',
@@ -12,7 +13,8 @@ export class FixedClinicComponent implements OnInit {
 
   @Input() fixed_clinicDto: ClinicDTO;
 
-  constructor(private clinicsService: ClinicsService, private router: Router) { }
+  constructor(private clinicsService: ClinicsService, private router: Router, private datePipe: DatePipe) {
+  }
 
   ngOnInit() {
   }
@@ -42,15 +44,31 @@ export class FixedClinicComponent implements OnInit {
     }
   }
 
+  isPrevious() {
+    if (this.fixed_clinicDto.isPrevious) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   isToday() {
     if (this.fixed_clinicDto.isToday) {
-      return "date_today";
+      return true;
     } else {
-      return "";
+      return false;
+    }
+  }
+
+  isNext() {
+    if (this.fixed_clinicDto.isNext) {
+      return true;
+    } else {
+      return false;
     }
   }
 
   patientsPanel(clinicDate) {
-    this.router.navigate(['/head/patients'], { queryParams: { clinicDate: clinicDate } });
+    this.router.navigate(['/head/patients'], {queryParams: {clinicDate: clinicDate}});
   }
 }

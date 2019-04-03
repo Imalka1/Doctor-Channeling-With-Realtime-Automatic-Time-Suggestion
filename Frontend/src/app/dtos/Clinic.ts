@@ -1,6 +1,6 @@
 export class Clinic {
     _id: String;
-    clinicDate: String;
+    clinicDate: Date;
     clinicTime: String;
     patientsCount: number;
     status: String;

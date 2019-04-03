@@ -17,6 +17,7 @@ import { DatePipe } from '@angular/common';
 import { PatientsComponent } from './views/doctor/patients/patients.component';
 import { SigninComponent } from './views/common/auth/signin/signin.component';
 import { SignupComponent } from './views/common/auth/signup/signup.component';
+import { ForgotPasswordComponent } from './views/common/auth/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SignupComponent } from './views/common/auth/signup/signup.component';
     FixedClinicComponent,
     PatientsComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

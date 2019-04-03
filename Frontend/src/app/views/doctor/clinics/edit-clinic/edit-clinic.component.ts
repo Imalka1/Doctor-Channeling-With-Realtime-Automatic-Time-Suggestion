@@ -54,9 +54,17 @@ export class EditClinicComponent implements OnInit {
 
   isToday() {
     if (this.edit_clinicDto.isToday) {
-      return "date_today";
+      return true;
     } else {
-      return "";
+      return false;
+    }
+  }
+
+  isNext() {
+    if (this.edit_clinicDto.isNext) {
+      return true;
+    } else {
+      return false;
     }
   }
 }

@@ -1,8 +1,10 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ClinicDTO } from 'src/app/dtos/ClinicDTO';
-import { Clinic } from 'src/app/dtos/Clinic';
-import { ClinicsService } from 'src/app/services/clinics.service';
+import {Component, OnInit, AfterViewInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {ClinicDTO} from 'src/app/dtos/ClinicDTO';
+import {Clinic} from 'src/app/dtos/Clinic';
+import {ClinicsService} from 'src/app/services/clinics.service';
+import {DatePipe} from '@angular/common';
+
 declare var custom_gallery: any;
 declare var custom_flex: any;
 declare var custom_navigation: any;
@@ -26,7 +28,7 @@ export class ClinicsComponent implements OnInit {
   selectedYear;
   dropdownMonthWidth;
 
-  constructor(private router: Router, private clinicsService: ClinicsService) {
+  constructor(private router: Router, private clinicsService: ClinicsService, private datePipe: DatePipe) {
   }
 
   ngOnInit() {
@@ -60,23 +62,29 @@ export class ClinicsComponent implements OnInit {
       let clinic: Clinic = new Clinic();
       if (this.monthIndex + 1 < 10) {
         if ((i + 1) < 10) {
-          clinic.clinicDate = this.yearIndex + '-0' + (this.monthIndex + 1) + '-0' + (i + 1);
+          clinic.clinicDate = new Date(this.yearIndex + '-0' + (this.monthIndex + 1) + '-0' + (i + 1));
         } else {
-          clinic.clinicDate = this.yearIndex + '-0' + (this.monthIndex + 1) + '-' + (i + 1);
+          clinic.clinicDate = new Date(this.yearIndex + '-0' + (this.monthIndex + 1) + '-' + (i + 1));
         }
       } else {
         if ((i + 1) < 10) {
-          clinic.clinicDate = this.yearIndex + '-' + (this.monthIndex + 1) + '-0' + (i + 1);
+          clinic.clinicDate = new Date(this.yearIndex + '-' + (this.monthIndex + 1) + '-0' + (i + 1));
         } else {
-          clinic.clinicDate = this.yearIndex + '-' + (this.monthIndex + 1) + '-' + (i + 1);
+          clinic.clinicDate = new Date(this.yearIndex + '-' + (this.monthIndex + 1) + '-' + (i + 1));
         }
       }
       clinic.clinicTime = "00:00";
       clinic.patientsCount = 0;
       clinic.status = "Not yet";
       let conDto: ClinicDTO = new ClinicDTO();
-      if (this.date.getFullYear() + '-' + (this.date.getMonth() + 1) + '-' + this.date.getDate() == this.yearIndex + '-' + (this.monthIndex + 1) + '-' + (i + 1)) {
+      let date1: Date = new Date(this.yearIndex + '-' + (this.monthIndex + 1) + '-' + (i + 1));
+      let date2: Date = new Date(this.date.getFullYear() + '-' + (this.date.getMonth() + 1) + '-' + this.date.getDate());
+      if (this.datePipe.transform((date1), 'yyyy-MM-dd') == this.datePipe.transform((date2), 'yyyy-MM-dd')) {
         conDto.isToday = true;
+      } else if (date1 < date2) {
+        conDto.isPrevious = true;
+      } else if (date1 > date2) {
+        conDto.isNext = true;
       }
       conDto.edit = false;
       conDto.clinic = clinic;
@@ -85,14 +93,14 @@ export class ClinicsComponent implements OnInit {
     }
 
     let clinic: Clinic = new Clinic();
-    clinic.clinicDate = this.yearIndex + '-' + (this.monthIndex + 1);
+    clinic.clinicDate = new Date(this.yearIndex + '-' + (this.monthIndex + 1));
 
     this.clinicsService.getAllClinicsViaYearAndMonth(clinic).subscribe(
       (result) => {
         for (let i = 0; i < result.length; i++) {
           let clinic: Clinic = result[i];
           for (let j = 0; j < this.clinicDtos.length; j++) {
-            if (this.clinicDtos[j].clinic.clinicDate + 'T00:00:00.000Z' == clinic.clinicDate) {
+            if (this.clinicDtos[j].clinic.clinicDate == clinic.clinicDate) {
               this.clinicDtos[j].clinic._id = clinic._id;
               this.clinicDtos[j].clinic.status = clinic.status;
               this.clinicDtos[j].clinic.clinicTime = clinic.clinicTime;
@@ -170,29 +178,41 @@ export class ClinicsComponent implements OnInit {
 
   setWidthDropdownMonth() {
     switch (this.selectedMonth) {
-      case this.months[0]: this.dropdownMonthWidth = '125px';
+      case this.months[0]:
+        this.dropdownMonthWidth = '125px';
         break;
-      case this.months[1]: this.dropdownMonthWidth = '140px';
+      case this.months[1]:
+        this.dropdownMonthWidth = '140px';
         break;
-      case this.months[2]: this.dropdownMonthWidth = '105px';
+      case this.months[2]:
+        this.dropdownMonthWidth = '105px';
         break;
-      case this.months[3]: this.dropdownMonthWidth = '85px';
+      case this.months[3]:
+        this.dropdownMonthWidth = '85px';
         break;
-      case this.months[4]: this.dropdownMonthWidth = '80px';
+      case this.months[4]:
+        this.dropdownMonthWidth = '80px';
         break;
-      case this.months[5]: this.dropdownMonthWidth = '82px';
+      case this.months[5]:
+        this.dropdownMonthWidth = '82px';
         break;
-      case this.months[6]: this.dropdownMonthWidth = '78px';
+      case this.months[6]:
+        this.dropdownMonthWidth = '78px';
         break;
-      case this.months[7]: this.dropdownMonthWidth = '115px';
+      case this.months[7]:
+        this.dropdownMonthWidth = '115px';
         break;
-      case this.months[8]: this.dropdownMonthWidth = '164px';
+      case this.months[8]:
+        this.dropdownMonthWidth = '164px';
         break;
-      case this.months[9]: this.dropdownMonthWidth = '130px';
+      case this.months[9]:
+        this.dropdownMonthWidth = '130px';
         break;
-      case this.months[10]: this.dropdownMonthWidth = '160px';
+      case this.months[10]:
+        this.dropdownMonthWidth = '160px';
         break;
-      case this.months[11]: this.dropdownMonthWidth = '158px';
+      case this.months[11]:
+        this.dropdownMonthWidth = '158px';
         break;
       default:
         break;

@@ -6,6 +6,7 @@ import {HeaderComponent} from './views/common/header/header.component';
 import {PatientsComponent} from './views/doctor/patients/patients.component';
 import {SigninComponent} from "./views/common/auth/signin/signin.component";
 import {SignupComponent} from "./views/common/auth/signup/signup.component";
+import {ForgotPasswordComponent} from "./views/common/auth/forgot-password/forgot-password.component";
 
 const routes: Routes = [
   // {
@@ -23,6 +24,10 @@ const routes: Routes = [
       {
         path: 'signup',
         component: SignupComponent
+      },
+      {
+        path: 'forgot-password',
+        component: ForgotPasswordComponent
       }
     ]
   },

@@ -1,9 +1,11 @@
-import { Clinic } from "./Clinic";
+import {Clinic} from "./Clinic";
 
 export class ClinicDTO {
-    clinic: Clinic;
-    edit: boolean;
-    isToday: boolean;
-    clinicDtos: Array<ClinicDTO>;
+  clinic: Clinic;
+  edit: boolean;
+  isToday: boolean;
+  isPrevious: boolean;
+  isNext: boolean;
+  clinicDtos: Array<ClinicDTO>;
 
 }
