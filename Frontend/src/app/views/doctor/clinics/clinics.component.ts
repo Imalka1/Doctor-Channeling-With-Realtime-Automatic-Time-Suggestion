@@ -108,7 +108,7 @@ export class ClinicsComponent implements OnInit {
               this.clinicDtos[j].clinic.status = clinic.status;
               this.clinicDtos[j].clinic.clinicTime = clinic.clinicTime;
               this.clinicDtos[j].clinic.patientsCount = clinic.patientsCount;
-              return;
+              break;
             }
           }
         }
