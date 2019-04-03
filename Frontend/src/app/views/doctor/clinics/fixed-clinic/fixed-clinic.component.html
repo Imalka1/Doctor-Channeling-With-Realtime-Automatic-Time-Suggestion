@@ -10,7 +10,7 @@
 </style>
 
 <!--Previous-->
-<div *ngIf="isPrevious()" class="row clinicDivs" style="margin-top: 10px;padding-bottom: 10px;border-bottom: 1px black solid;color: rgb(110,108,108);">
+<div *ngIf="isPrevious()" class="row clinicDivs" style="margin-top: 10px;padding-bottom: 10px;border-bottom: 1px black solid;color: rgb(109,107,107);">
   <div class="col-sm-1">{{fixed_clinicDto.clinicDtos.indexOf(fixed_clinicDto)+1}}</div>
   <div class="col-sm-2" #clinicDate>{{datePipe.transform((fixed_clinicDto.clinic.clinicDate), 'yyyy-MM-dd')}}</div>
   <div class="col-sm-2">{{fixed_clinicDto.clinic.clinicTime}}</div>

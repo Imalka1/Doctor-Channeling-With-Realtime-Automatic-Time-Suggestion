@@ -58,7 +58,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="20" />
-          <entry key="html" value="392" />
+          <entry key="html" value="398" />
           <entry key="js" value="342" />
           <entry key="json" value="1" />
           <entry key="ts" value="555" />
@@ -68,7 +68,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="20" />
-          <entry key="HTML" value="392" />
+          <entry key="HTML" value="398" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="342" />
           <entry key="PLAIN_TEXT" value="7" />
@@ -95,8 +95,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/doctor/clinics/clinics.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+            <state relative-caret-position="407">
+              <caret line="42" column="97" selection-start-line="42" selection-start-column="97" selection-end-line="42" selection-end-column="97" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -110,8 +110,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/doctor/clinics/fixed-clinic/fixed-clinic.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+            <state relative-caret-position="357">
+              <caret line="48" column="139" selection-start-line="48" selection-start-column="139" selection-end-line="48" selection-end-column="139" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#5;n#div#0;n#!!top" expanded="true" />
@@ -119,6 +119,8 @@
                 <element signature="n#style#0;n#div#7;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#5;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#5;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#7;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#5;n#div#2;n#!!top" expanded="true" />
               </folding>
@@ -211,7 +213,6 @@
         <option value="$PROJECT_DIR$/Frontend/src/app/app-routing.module.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/common/auth/signin/signin.component.html" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/common/auth/forgot-password/forgot-password.component.html" />
-        <option value="$PROJECT_DIR$/Frontend/src/app/views/doctor/clinics/clinics.component.html" />
         <option value="$PROJECT_DIR$/Frontend/src/app/dtos/Clinic.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/dtos/ClinicDTO.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/doctor/patients/patients.component.ts" />
@@ -219,6 +220,7 @@
         <option value="$PROJECT_DIR$/Frontend/src/app/views/doctor/clinics/fixed-clinic/fixed-clinic.component.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/doctor/clinics/edit-clinic/edit-clinic.component.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/doctor/clinics/edit-clinic/edit-clinic.component.html" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/views/doctor/clinics/clinics.component.html" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/doctor/clinics/fixed-clinic/fixed-clinic.component.html" />
       </list>
     </option>
@@ -446,7 +448,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554286575634" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554287085481" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -489,7 +491,7 @@
       <workItem from="1552473423610" duration="1219000" />
       <workItem from="1552476708024" duration="3869000" />
       <workItem from="1552495140230" duration="8441000" />
-      <workItem from="1554197161842" duration="27703000" />
+      <workItem from="1554197161842" duration="28211000" />
     </task>
     <task id="LOCAL-00001" summary="up">
       <created>1554216744588</created>
@@ -551,11 +553,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43981000" />
+    <option name="totallyTimeSpent" value="44489000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13691275" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -837,19 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/doctor/clinics/clinics.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#app-fixed-clinic#0;n#ng-container#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#app-edit-clinic#0;n#ng-container#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/doctor/clinics/fixed-clinic/fixed-clinic.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="458">
@@ -881,10 +869,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/doctor/clinics/clinics.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="42" column="97" selection-start-line="42" selection-start-column="97" selection-end-line="42" selection-end-column="97" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#app-fixed-clinic#0;n#ng-container#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#app-edit-clinic#0;n#ng-container#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/doctor/clinics/fixed-clinic/fixed-clinic.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+        <state relative-caret-position="357">
+          <caret line="48" column="139" selection-start-line="48" selection-start-column="139" selection-end-line="48" selection-end-column="139" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#5;n#div#0;n#!!top" expanded="true" />
@@ -892,6 +893,8 @@
             <element signature="n#style#0;n#div#7;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#5;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#5;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#7;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#5;n#div#2;n#!!top" expanded="true" />
           </folding>
