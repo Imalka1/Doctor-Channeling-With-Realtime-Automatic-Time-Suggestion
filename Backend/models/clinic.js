@@ -4,7 +4,8 @@ var Clinic = mongoose.model('Clinic', {
     clinicDate: { type: Date },
     clinicTime: { type: String },
     patientsCount: { type: Number },
-    status: { type: String }
+    status: { type: String },
+    patients:  [{ type: mongoose.Schema.Types.ObjectId, ref: 'Patient' }]
 })
 
 module.exports = { Clinic };

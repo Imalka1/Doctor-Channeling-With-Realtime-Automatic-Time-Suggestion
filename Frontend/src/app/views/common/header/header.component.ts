@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit {
   }
 
   isLoginActive() {
-    if (this.router.url == '/log-head/signin' || this.router.url == '/log-head/signup') {
+    if (this.router.url == '/log-head/signin' || this.router.url == '/log-head/signup' || this.router.url == '/log-head/forgot-password') {
       return false;
     } else {
       return true;
