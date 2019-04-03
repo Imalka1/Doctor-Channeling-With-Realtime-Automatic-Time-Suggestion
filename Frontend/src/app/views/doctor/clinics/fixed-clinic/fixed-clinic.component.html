@@ -28,7 +28,7 @@
 </div>
 
 <!--Today-->
-<div *ngIf="isToday()" class="row clinicDivs" style="margin-top: 10px;padding-bottom: 10px;border-bottom: 1px black solid;color: rgb(2, 138, 2);font-weight: bold;">
+<div *ngIf="isToday()" class="row clinicDivs" style="margin-top: 10px;padding-bottom: 10px;border-bottom: 1px black solid;color: rgb(2,133,2);font-weight: bold;">
   <div class="col-sm-1">{{fixed_clinicDto.clinicDtos.indexOf(fixed_clinicDto)+1}}</div>
   <div class="col-sm-2" #clinicDate>{{fixed_clinicDto.clinic.clinicDate.toISOString().split('T')[0]}}</div>
   <div class="col-sm-2">{{fixed_clinicDto.clinic.clinicTime}}</div>
