@@ -17,7 +17,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     custom_navigation();
-    custom_owl();
+    // custom_owl();
+    // console.log(852)
     // custom_flex();
     // custom_date_picker();
     // custom_gallery();
@@ -39,6 +40,14 @@ export class HeaderComponent implements OnInit {
       return "active";
     } else {
       return "";
+    }
+  }
+
+  isLoginActive() {
+    if (this.router.url == '/log-head/signin' || this.router.url == '/log-head/signup') {
+      return false;
+    } else {
+      return true;
     }
   }
 

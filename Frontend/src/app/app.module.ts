@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ClinicsService } from './services/clinics.service';
 import { DatePipe } from '@angular/common';
 import { PatientsComponent } from './views/doctor/patients/patients.component';
+import { SigninComponent } from './views/common/auth/signin/signin.component';
+import { SignupComponent } from './views/common/auth/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { PatientsComponent } from './views/doctor/patients/patients.component';
     ClinicsComponent,
     EditClinicComponent,
     FixedClinicComponent,
-    PatientsComponent
+    PatientsComponent,
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

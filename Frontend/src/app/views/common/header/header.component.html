@@ -1,5 +1,5 @@
 <!--====== LOADER =====-->
-<div class="loader"></div>
+<!--<div class="loader"></div>-->
 
 
 
@@ -58,7 +58,7 @@
               </ul>
             </li>
 
-            <li><a href="reservation-right-sidebar.html">Login</a></li>
+            <li><a *ngIf="isLoginActive()" href="reservation-right-sidebar.html" routerLink="/log-head/signin">sign in</a></li>
 
           </ul>
         </div><!-- end navbar collapse -->

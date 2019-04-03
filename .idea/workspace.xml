@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18e29b0e-9082-46c4-92db-f03602baa61d" name="Default Changelist" comment="up">
-      <change afterPath="$PROJECT_DIR$/Frontend/src/app/views/common/auth/signin/signin.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/app/views/common/auth/signin/signin.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/app/views/common/auth/signup/signup.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/app/views/common/auth/signup/signup.component.ts" afterDir="false" />
+    <list default="true" id="18e29b0e-9082-46c4-92db-f03602baa61d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Frontend/src/app/views/common/auth/signin/signin.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/app/views/common/auth/signup/signup.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/models/clinicPatients.js" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/models/clinicPatients.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/views/common/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/views/common/footer/footer.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/app/views/common/footer/footer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/views/common/footer/footer.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/css/yellow.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/assets/css/yellow.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/views/common/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/views/common/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/app/views/common/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/app/views/common/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/js/custom-navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/assets/js/custom-navigation.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,7 +71,7 @@
           <entry key="js" value="342" />
           <entry key="json" value="1" />
           <entry key="ts" value="110" />
-          <entry key="txt" value="2" />
+          <entry key="txt" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -81,7 +80,7 @@
           <entry key="HTML" value="219" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="342" />
-          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="PLAIN_TEXT" value="7" />
           <entry key="TypeScript" value="110" />
         </counts>
       </usages-collector>
@@ -122,8 +121,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/common/auth/signup/signup.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="92" selection-start-line="34" selection-start-column="92" selection-end-line="34" selection-end-column="92" />
+            <state relative-caret-position="425">
+              <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -365,7 +364,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554274865286" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554275015276" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -408,7 +407,7 @@
       <workItem from="1552473423610" duration="1219000" />
       <workItem from="1552476708024" duration="3869000" />
       <workItem from="1552495140230" duration="8441000" />
-      <workItem from="1554197161842" duration="20273000" />
+      <workItem from="1554197161842" duration="20525000" />
     </task>
     <task id="LOCAL-00001" summary="up">
       <created>1554216744588</created>
@@ -452,11 +451,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554225244427</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="login">
+      <created>1554274963287</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1554274963288</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36551000" />
+    <option name="totallyTimeSpent" value="36803000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -501,7 +507,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="up" />
-    <option name="LAST_COMMIT_MESSAGE" value="up" />
+    <MESSAGE value="login" />
+    <option name="LAST_COMMIT_MESSAGE" value="login" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Frontend/src/assets/css/fonts/flexslider-icon.html">
@@ -706,8 +713,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/common/auth/signup/signup.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="92" selection-start-line="34" selection-start-column="92" selection-end-line="34" selection-end-column="92" />
+        <state relative-caret-position="425">
+          <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
         </state>
       </provider>
     </entry>
