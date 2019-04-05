@@ -10,20 +10,21 @@
 </style>
 
 <!--Previous-->
-<div *ngIf="isPrevious()" class="row clinicDivs" style="margin-top: 10px;padding-bottom: 10px;border-bottom: 1px black solid;color: rgb(105,103,103);">
+<div *ngIf="isPrevious()" class="row clinicDivs" style="margin-top: 10px;padding-bottom: 10px;border-bottom: 1px black solid">
   <div class="col-sm-1">{{fixed_clinicDto.clinicDtos.indexOf(fixed_clinicDto)+1}}</div>
   <div class="col-sm-2" #clinicDate>{{datePipe.transform((fixed_clinicDto.clinic.clinicDate), 'yyyy-MM-dd')}}</div>
   <div class="col-sm-2">{{fixed_clinicDto.clinic.clinicTime}}</div>
   <div class="col-sm-2">0 / {{fixed_clinicDto.clinic.patientsCount}}</div>
   <div class="col-sm-2">{{fixed_clinicDto.clinic.status}}</div>
+
   <div class="col-sm-1" style="text-align: center;cursor: pointer">
-    <i class="fa fa-search fa-1x clinicDivsFonts" (click)="patientsPanel(fixed_clinicDto.clinic.clinicDate)"></i>
+    <i class="fa fa-search fa-1x clinicDivsFonts" style="color: rgb(136, 83, 4)" (click)="patientsPanel(fixed_clinicDto.clinic.clinicDate)"></i>
+  </div>
+  <div class="col-sm-1" style="text-align: center" >
+    <i class="fa fa-pencil fa-1x clinicDivsFonts" style="color: rgb(105,103,103)"></i>
   </div>
   <div class="col-sm-1" style="text-align: center">
-    <i class="fa fa-pencil fa-1x clinicDivsFonts"></i>
-  </div>
-  <div class="col-sm-1" style="text-align: center">
-    <i class="fa fa-times fa-1x clinicDivsFonts"></i>
+    <i class="fa fa-times fa-1x clinicDivsFonts" style="color: rgb(105,103,103)"></i>
   </div>
 </div>
 
