@@ -38,10 +38,24 @@
       <div class="col-sm-1" style="text-align: center">Set</div>
       <div class="col-sm-1" style="text-align: center">Cancel</div>
     </div>
+
     <ng-container *ngFor="let clinicDto of clinicDtos">
       <app-fixed-clinic [fixed_clinicDto]="clinicDto" *ngIf="!clinicDto.edit" style="cursor: default"></app-fixed-clinic>
       <app-edit-clinic [edit_clinicDto]="clinicDto" *ngIf="clinicDto.edit" style="cursor: default"></app-edit-clinic>
     </ng-container>
+
+    <div class="row" style="margin-top: 100px;font-size: 25px">
+      <!--<div class="col-sm-12" style="cursor: pointer;color: rgb(194, 146, 2)"><i class="fa fa-arrow-up fa-2x"></i></div>-->
+      <div class="col-sm-5" style="text-align: right">Approximate time for a patient</div>
+      <div class="col-sm-2" style="text-align: right;color: rgb(194, 146, 2)"><i class="fa fa-arrow-right"></i></div>
+      <div class="col-sm-2" style="text-align: right">
+        <select style="background-color: rgba(255, 255, 255, 0);border: 1px solid rgba(0, 0, 0, 0.096);">
+          <option *ngFor="let minute of minutes" value="{{minute}}">{{minute}}</option>
+        </select>
+      </div>
+      <div class="col-sm-3" style="">Minutes</div>
+      <!--<div class="col-sm-12" style="cursor: pointer;color: rgb(194, 146, 2)"><i class="fa fa-arrow-down fa-2x"></i></div>-->
+    </div>
   </div><!-- end columns -->
 </section><!-- end about -->
 

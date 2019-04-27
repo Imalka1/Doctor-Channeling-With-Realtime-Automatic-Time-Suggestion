@@ -5,11 +5,11 @@ import {Clinic} from 'src/app/dtos/Clinic';
 import {ClinicsService} from 'src/app/services/clinics.service';
 import {DatePipe} from '@angular/common';
 
-declare var custom_gallery: any;
-declare var custom_flex: any;
-declare var custom_navigation: any;
-declare var custom_owl: any;
-declare var custom_date_picker: any;
+// declare var custom_gallery: any;
+// declare var custom_flex: any;
+// declare var custom_navigation: any;
+// declare var custom_owl: any;
+// declare var custom_date_picker: any;
 
 @Component({
   selector: 'app-clinics',
@@ -21,6 +21,7 @@ export class ClinicsComponent implements OnInit {
   clinicDtos: Array<ClinicDTO> = new Array();
   months: Array<String> = new Array();
   years: Array<number> = new Array();
+  minutes: Array<number> = new Array();
   monthIndex: number = 0;
   yearIndex: number = 0;
   date: Date;
@@ -35,25 +36,26 @@ export class ClinicsComponent implements OnInit {
     this.setYearAndMonth();
     this.loadAllClinics();
     this.setWidthDropdownMonth();
+    this.setMinutes();
   }
 
-  addField() {
-    let canAdd: boolean = true;
-    for (let i = 0; i < this.clinicDtos.length; i++) {
-      if (this.clinicDtos[i].edit == true) {
-        canAdd = false;
-      }
-    }
-    if (canAdd) {
-      let con = new Clinic();
-      let conDto = new ClinicDTO();
-      conDto.edit = true;
-      conDto.clinic = con;
-      conDto.clinic.status = "Pending";
-      conDto.clinicDtos = this.clinicDtos;
-      this.clinicDtos.push(conDto);
-    }
-  }
+  // addField() {
+  //   let canAdd: boolean = true;
+  //   for (let i = 0; i < this.clinicDtos.length; i++) {
+  //     if (this.clinicDtos[i].edit == true) {
+  //       canAdd = false;
+  //     }
+  //   }
+  //   if (canAdd) {
+  //     let con = new Clinic();
+  //     let conDto = new ClinicDTO();
+  //     conDto.edit = true;
+  //     conDto.clinic = con;
+  //     conDto.clinic.status = "Pending";
+  //     conDto.clinicDtos = this.clinicDtos;
+  //     this.clinicDtos.push(conDto);
+  //   }
+  // }
 
   loadAllClinics() {
     var daysInMonth = this.daysInMonth();
@@ -222,8 +224,10 @@ export class ClinicsComponent implements OnInit {
     }
   }
 
-  changeData(consultation_row: HTMLElement) {
-    console.log(consultation_row.children);
+  setMinutes() {
+    for (let i = 0; i < 60; i++) {
+      this.minutes.push(i + 1);
+    }
   }
 
 }
