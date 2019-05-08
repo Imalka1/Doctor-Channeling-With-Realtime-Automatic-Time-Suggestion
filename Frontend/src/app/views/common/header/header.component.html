@@ -58,7 +58,7 @@
               </ul>
             </li>
 
-            <li><a *ngIf="isLoginActive()" href="reservation-right-sidebar.html" routerLink="/log-head/signin">sign in</a></li>
+            <li><a *ngIf="isLoginActive()" (click)="loginOrLogout()" style="cursor: pointer">{{loginButtonText}}</a></li>
 
           </ul>
         </div><!-- end navbar collapse -->

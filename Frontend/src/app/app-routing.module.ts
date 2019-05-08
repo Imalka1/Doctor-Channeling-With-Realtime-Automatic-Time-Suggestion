@@ -7,12 +7,9 @@ import {PatientsComponent} from './views/doctor/patients/patients.component';
 import {SigninComponent} from "./views/common/auth/signin/signin.component";
 import {SignupComponent} from "./views/common/auth/signup/signup.component";
 import {ForgotPasswordComponent} from "./views/common/auth/forgot-password/forgot-password.component";
+import {LoginGuard} from "./guards/login.guard";
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   component: MainScreenComponent
-  // },
   {
     path: 'log-head',
     component: HeaderComponent,
@@ -38,7 +35,14 @@ const routes: Routes = [
       {
         path: 'main',
         component: MainScreenComponent
-      },
+      }
+    ]
+  },
+  {
+    path: 'head',
+    component: HeaderComponent,
+    canActivate: [LoginGuard],
+    children: [
       {
         path: 'clinics',
         component: ClinicsComponent

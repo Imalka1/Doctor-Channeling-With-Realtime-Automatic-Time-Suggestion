@@ -2346,6 +2346,15 @@ p{
 	border-color:#aaaaaa;
 	box-shadow:none;
 }
+
+.select-form-control{
+  border-radius:30px;
+  border-color:#aaaaaa;
+  height: 45px;
+  padding-left: 95px;
+  width: 100%;
+  color: #929292;
+}
    
 .custom-form button{
 	border-radius:30px;
